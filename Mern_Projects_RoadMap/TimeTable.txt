@@ -1,0 +1,18 @@
+Mern Stack Project Time Table  -------------->>>>>>>>>> :::::::::: 
+
+
+Mern Login System  -- >  6 
+
+Socket.io  --> 6 
+
+RestApi  --- > 6 
+
+Dns  --- > 6
+
+Monitoring  --> 5
+
+Kafka --> 6
+
+
+
+

@@ -1,0 +1,102 @@
+HTTP response headers are used by the server to provide additional information about the response it sends back to the client. These headers convey details about the server, the resource being returned, caching policies, and other metadata. Below is a list of common HTTP response headers along with examples:
+
+1. General Headers
+These headers apply to both request and response messages.
+
+Date: The date and time at which the response was sent.
+
+Example: Date: Tue, 20 Oct 2024 15:18:00 GMT
+Connection: Indicates whether the network connection is persistent or not.
+
+Example: Connection: keep-alive
+2. Response Headers
+These headers are specific to the response from the server and provide information about the server and the resource.
+
+a. Server Identification
+Server: Identifies the software used by the origin server to handle the request.
+
+Example: Server: Apache/2.4.41 (Ubuntu)
+X-Powered-By: Indicates the technology (like a programming language or framework) used to build the web application.
+
+Example: X-Powered-By: PHP/7.4.3
+b. Content and Media Type
+Content-Type: Indicates the media type of the resource being sent to the client.
+
+Example: Content-Type: text/html; charset=UTF-8
+Content-Length: The length of the response body in bytes.
+
+Example: Content-Length: 348
+Content-Encoding: Indicates any encoding transformations applied to the body of the response.
+
+Example: Content-Encoding: gzip
+Content-Language: Indicates the language of the resource.
+
+Example: Content-Language: en-US
+Content-Disposition: Instructs the browser on how to handle the content, such as prompting the user to download it.
+
+Example: Content-Disposition: attachment; filename="filename.pdf"
+c. Caching and Expiration
+Cache-Control: Directives for caching mechanisms in both requests and responses.
+
+Example: Cache-Control: no-cache, no-store, must-revalidate
+Expires: Indicates the date/time after which the response is considered stale.
+
+Example: Expires: Wed, 21 Oct 2024 07:28:00 GMT
+Last-Modified: Indicates the last modification date of the resource.
+
+Example: Last-Modified: Sat, 29 Oct 2024 19:43:31 GMT
+ETag: A unique identifier for a specific version of a resource.
+
+Example: ETag: "5d8c72a4f"
+d. Location and Redirection
+Location: Used in redirection responses to indicate the URL to which the client should be redirected.
+Example: Location: https://www.example.com/newpage
+e. Security Headers
+Strict-Transport-Security: Informs browsers to only connect to the server using HTTPS.
+
+Example: Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: Prevents MIME-type sniffing and forces the browser to respect the Content-Type.
+
+Example: X-Content-Type-Options: nosniff
+X-Frame-Options: Controls whether a browser is allowed to render a page in a <frame>, <iframe>, or <object>.
+
+Example: X-Frame-Options: DENY
+Content-Security-Policy: Helps prevent various types of attacks such as Cross-Site Scripting (XSS) by specifying which dynamic resources are allowed to load.
+
+Example: Content-Security-Policy: default-src 'self';
+f. Custom and Miscellaneous Headers
+X-Requested-With: Used to identify Ajax requests. Most JavaScript frameworks send this field.
+
+Example: X-Requested-With: XMLHttpRequest
+Access-Control-Allow-Origin: Used in CORS (Cross-Origin Resource Sharing) to specify which origins are permitted to access the resource.
+
+Example: Access-Control-Allow-Origin: *
+Retry-After: Indicates how long the client should wait before making a follow-up request.
+
+Example: Retry-After: 3600
+Example of a Complete HTTP Response with Headers:
+php
+Copy code
+HTTP/1.1 200 OK
+Date: Tue, 20 Oct 2024 15:18:00 GMT
+Server: Apache/2.4.41 (Ubuntu)
+X-Powered-By: PHP/7.4.3
+Content-Type: text/html; charset=UTF-8
+Content-Length: 348
+Content-Encoding: gzip
+Cache-Control: no-cache, no-store, must-revalidate
+Expires: Wed, 21 Oct 2024 07:28:00 GMT
+Last-Modified: Sat, 29 Oct 2024 19:43:31 GMT
+ETag: "5d8c72a4f"
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>

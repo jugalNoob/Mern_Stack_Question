@@ -1,0 +1,137 @@
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+If-Modified-Since: Sat, 29 Oct 2024 19:43:31 GMT
+Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
+Cookie: sessionID=xyz456; userID=abc123
+
+
+:::::: Most Common Headers  
+
+1: Accept :: application/Json  // only json data show 
+2:user-agent 
+3::Content-Type :: application/json
+4::Cookies 
+5:Cache-Control 
+
+:::Cors  ...............
+Access -Control-Allow-Origin
+Access -Control-Allow-Methods
+Access -Control-Allow-Headers
+Access-Control-Allow-Credentials
+
+
+::: Scurity ::::::::
+
+corss-origin-policy 
+cross-origin-openes-policy
+content-security-policy
+x-xxs-pprotection
+
+
+
+
+HTTP request headers allow clients (typically web browsers) to pass additional information with an HTTP request to the server. These headers provide metadata about the request, such as the type of content being sent, client information, preferred languages, authentication credentials, and more.
+
+Here's a list of common HTTP request headers along with examples:
+
+1. General Headers
+These headers apply to both request and response messages.
+
+Cache-Control: Directs caching behavior.
+Example: Cache-Control: no-cache
+Connection: Controls whether the network connection stays open after the current transaction.
+Example: Connection: keep-alive
+Date: The date and time at which the message was sent.
+Example: Date: Tue, 20 Oct 2024 15:18:00 GMT
+2. Request Headers
+These are specific to HTTP requests and provide additional information about the request.
+
+a. Request Identification
+Host: Specifies the domain name of the server and optionally the TCP port number. Required for HTTP/1.1.
+
+Example: Host: www.example.com
+User-Agent: Information about the client software making the request (e.g., browser type, version, and operating system).
+
+Example: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36
+Referer: The address of the previous web page from which the current request was made (this is not a typo, the header is spelled "Referer").
+
+Example: Referer: https://www.google.com/
+
+
+b. Content and Media Type
+Content-Type: Indicates the media type of the resource being sent to the server.
+
+Example: Content-Type: application/json
+Content-Length: The length of the request body in bytes.
+
+Example: Content-Length: 150
+Content-Encoding: Indicates any encoding transformations applied to the body of the request.
+
+Example: Content-Encoding: gzip
+Content-Language: Indicates the language of the body of the request.
+
+Example: Content-Language: en-US
+Transfer-Encoding: Specifies the form of encoding used to safely transfer the payload body to the user.
+
+Example: Transfer-Encoding: chunked
+c. Caching and Conditional Requests
+If-Modified-Since: Allows the client to check if the resource has changed since a specific date.
+
+Example: If-Modified-Since: Sat, 29 Oct 2024 19:43:31 GMT
+If-None-Match: Used for conditional requests to check if the resource’s entity tag (ETag) has changed.
+
+Example: If-None-Match: "5d8c72a4f"
+ETag: Used to match a previously stored version of a resource.
+
+Example: ETag: "abc123"
+d. Authorization and Cookies
+Authorization: Contains the credentials to authenticate a client with a server.
+
+Example: Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
+Cookie: Sends cookies previously received from the server back to it.
+
+Example: Cookie: userID=abc123; sessionID=xyz456
+e. Accept Headers
+These headers define the media types, character sets, encoding, and languages that the client can understand or prefers.
+
+Accept: Specifies the media types that the client is willing to receive.
+
+Example: Accept: text/html, application/xhtml+xml, application/xml;q=0.9, image/avif, image/webp, */*;q=0.8
+Accept-Encoding: Lists the content-encoding methods the client can decode (e.g., gzip, deflate).
+
+Example: Accept-Encoding: gzip, deflate, br
+Accept-Language: Indicates the preferred language for the response.
+
+Example: Accept-Language: en-US,en;q=0.5
+Accept-Charset: Specifies the character sets the client can handle.
+
+Example: Accept-Charset: utf-8, iso-8859-1;q=0.8
+f. Security and Redirection
+Origin: Indicates the origin of the request, used in cross-origin resource sharing (CORS).
+
+Example: Origin: https://example.com
+Upgrade-Insecure-Requests: Informs the server that the client prefers secure content.
+
+Example: Upgrade-Insecure-Requests: 1
+g. Other Common Headers
+Range: Requests only part of an entity (e.g., part of a file) instead of the entire resource.
+
+Example: Range: bytes=500-999
+DNT (Do Not Track): Requests that the server not track the user.
+
+Example: DNT: 1
+X-Requested-With: Typically used to identify Ajax requests.
+
+Example: X-Requested-With: XMLHttpRequest
+X-Forwarded-For: Identifies the original IP address of a client connecting through a proxy or load balancer.
+
+Example: X-Forwarded-For: 192.168.1.100
+X-Frame-Options: Controls whether a browser is allowed to render a page in a <frame>, <iframe>, or <object>.
+
+Example: X-Frame-Options: DENY

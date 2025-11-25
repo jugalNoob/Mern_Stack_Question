@@ -1,4 +1,27 @@
 
+// ----- >>>> Important -------------->>[
+// function anas(){
+//     dev()
+//     function dev(){
+//         console.log(age)
+//     }
+// }
+// var age=10 //answer show 10 
+// anas()
+// var age=10 // undiend 
+
+
+function You(){
+    console.log(age)
+}
+let age=10 //it show 10
+You()
+ var age=10 // it show unfiend
+
+
+// console.log(ages)
+// var ages=10
+
 
 //////////////// ---->Important ------------------------------------>>
 💡 Definition:
@@ -125,4 +148,6 @@ ReferenceError: Cannot access 'one' before initialization
 Function declarations → fully hoisted
 
 Function expressions / arrow functions → partially hoisted (variable only, not value)
+
+
 

@@ -1,3 +1,50 @@
+class SchoolMain {
+  static MainSchoolOne = 'SchoolOfJugal';
+
+  constructor(name, Total) {
+    this.name = name;
+    this.Total = Total;
+    this.Main = SchoolMain.MainSchoolOne;
+  }
+
+  Main_School() {
+    console.log(
+      `School Name: ${this.name}, Total Schools: ${this.Total}, Main School: ${this.Main}`
+    );
+  }
+}
+
+class SecondSchool extends SchoolMain {
+
+  constructor(name, Total, second) {
+    super(name, Total);
+    this.second = second;  // FIXED typo
+  }
+
+  Second_School() {
+
+    // Call parent method (super keyword)
+    super.Main_School();
+
+    // Additional info from child
+    console.log(`Second School Info: ${this.second}`);
+  }
+}
+
+let main = new SchoolMain('Jugal Sharma', 100);
+let second = new SecondSchool('Karan Sharma', 50, 'Nikhil');
+
+// OUTPUT
+main.Main_School();    // Prints Jugal
+second.Main_School();  // Prints Karan
+second.Second_School();  // Prints parent + child info
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
 class Pe {
   constructor(name) {
     this.names = name;

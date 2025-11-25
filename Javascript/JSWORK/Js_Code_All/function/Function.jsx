@@ -221,6 +221,31 @@ nameChange='jugal sharma'
 console.log(nameChange)
 
 
+::::::: Function Express Run First Why ---------------->>
+function Names() {
+  return 'jugal sharma';
+}
+
+Names = function () {
+  return 'karan sharma';
+};
+
+console.log(Names());  // karan sharma
+Names();               // also karan sharma
+
+
+🔥 WHY DOES THIS WORK?
+✔ Reason 1: Functions are stored in variables
+
+In JavaScript:
+
+A function declaration creates a variable name (Names)
+
+A function expression can be assigned to that variable
+
+So:
+
+
 
 :::::::::Importantn ::::::::::::::::::
 

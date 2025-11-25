@@ -72,7 +72,8 @@ Synchronous (fsSync) methods block execution until the operation finishes.
 Q what is module?
 ✅ Answer:
 
-Modules in Node.js are reusable blocks of code that you can import and use in other files.
+Modules in Node.js are reusable blocks of code that
+ you can import and use in other files.
 | Type                     | Example                    | Description                |
 | ------------------------ | -------------------------- | -------------------------- |
 | **Built-in Modules**     | `fs`, `http`, `path`, `os` | Provided by Node.js itself |
@@ -141,7 +142,8 @@ body-parser helps Express apps understand data
 sent by the client (like form data or JSON).
 
 Q what is commn.js
-CommonJS is the module system used by Node.js to load and share code between files using
+CommonJS is the module system used by Node.js to load and
+ share code between files using
 require() and module.exports.
 
 It’s the older module format (before ES Modules), but still widely used in Node.js projects.

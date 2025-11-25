@@ -40,3 +40,25 @@ with() → replaces a value at index without mutating
 | Examples                | `reverse()`, `sort()`, `splice()`, `push()`, `pop()` | `toReversed()`, `toSorted()`, `toSpliced()`, `with()`      |
 | Use case                | When you **want to update array in-place**           | When you **want immutability**, safer for state management |
 | Side effects            | Can cause bugs if array shared                       | No side effects                                            |
+
+
+
+// Dense vs Sparse arrays
+// How JS stores arrays internally
+
+
+
+1. data[0] → First element
+
+JavaScript arrays are 0-indexed.
+
+Index: 0   1   2   3   4
+Value: 10  20  30  40  50
+
+
+2. data.length → total elements
+
+Length counts number of items, not highest index.
+
+Length = 5
+Highest index = 4

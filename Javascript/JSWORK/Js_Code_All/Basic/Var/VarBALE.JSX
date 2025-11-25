@@ -1,3 +1,52 @@
+🧠 What is NaN?
+
+NaN stands for Not a Number
+
+It’s a special value in JavaScript used to represent invalid number results.
+
+Example:
+console.log(0 / 0);      // NaN
+console.log("abc" / 2);  // NaN
+console.log(NaN);        // NaN
+
+
+Key facts about NaN:
+
+NaN is of type number
+
+console.log(typeof NaN); // "number"
+
+
+NaN is the only value that is NOT equal to itself
+
+console.log(NaN === NaN); // false
+
+
+
+🧠 What is isNaN()?
+
+isNaN() is a function that checks whether a value is NOT a number
+
+It returns true or false
+
+
+console.log(isNaN(10));      // false (10 is a number)
+console.log(isNaN("hello")); // true (not a number)
+console.log(isNaN(NaN));     // true
+
+
+console.log(isNaN("123")); // false → "123" converts to number 123
+console.log(isNaN("abc")); // true  → cannot convert
+
+
+| Item             | Means                                                    | Example               | Result |
+| ---------------- | -------------------------------------------------------- | --------------------- | ------ |
+| `NaN`            | actual value meaning Not-a-number                        | `console.log(NaN)`    | NaN    |
+| `isNaN()`        | function checking if value is NaN (with type conversion) | `isNaN("abc")`        | true   |
+| `Number.isNaN()` | strict version (no conversion)                           | `Number.isNaN("abc")` | false  |
+
+
+
 // 1️⃣ var, let, const
 var x = 1; let y = 2; const z = 3;
 x = 10; y = 20; // ok

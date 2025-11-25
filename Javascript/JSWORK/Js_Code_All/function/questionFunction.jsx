@@ -244,3 +244,10 @@ Fn.call({ name: 'jugals' });
 So inside Fn,
 this now refers to the object { name: 'jugals' }.
 
+Q 🎯 MAIN DIFFERENCE BETWEEN SCOPE AND HOISTING
+
+
+| Concept      | Meaning                          | Affects What?           |
+| ------------ | -------------------------------- | ----------------------- |
+| **Scope**    | Where variables can be accessed  | Visibility              |
+| **Hoisting** | How JS moves declarations to top | Initialization & errors |

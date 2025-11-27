@@ -24,6 +24,30 @@ res.pip(stream)
 
 
 
+
+
+
+
+const stream = fs.createReadStream('./file/jugal.txt', {
+  encoding: 'utf-8',
+  highWaterMark: 10
+});
+
+stream.on('open', () => console.log('opened'));
+stream.on('data', chunk => console.log('chunk:', chunk));
+stream.on('end', () => console.log('completed'));
+stream.on('close', () => console.log('closed'));
+stream.on('open', (fd) => {
+  console.log("File opened:", fd);
+});
+
+stream.on('error', err => console.log('error:', err));
+
+
+
+
+
+
 ::::::::: ---------------->> Cosutem Streaming --------------------->>
 
 const { Readable } = require('stream');

@@ -121,8 +121,10 @@ Q what is middlware?
 
 Simple Definition:
 
-Middleware is a function that handles requests before they 
-reach your route or before the response is sent back.
+Middleware is a function that handles 
+requests before they 
+reach your route or before the response 
+is sent back.
 
 | Type                     | Description              | Example                              |
 | ------------------------ | ------------------------ | ------------------------------------ |
@@ -144,7 +146,9 @@ Q what is commn.js
 CommonJS is the module system used by Node.js to load and share code between files using
 require() and module.exports.
 
-It’s the older module format (before ES Modules), but still widely used in Node.js projects.
+It’s the older module format
+ (before ES Modules), but still widely
+  used in Node.js projects.
 
 
 

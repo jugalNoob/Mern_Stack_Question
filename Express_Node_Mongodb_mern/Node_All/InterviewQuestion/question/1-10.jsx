@@ -4,7 +4,8 @@ https://www.geeksforgeeks.org/node-js/node-interview-questions-and-answers/
 
 1. How does Node.js work?
 Node.js works on a single-threaded,
- event-driven architecture using the V8 JavaScript engine.
+ event-driven architecture using the V8
+  JavaScript engine.
 
 
 V8 Engine: Compiles JavaScript into fast machine code.

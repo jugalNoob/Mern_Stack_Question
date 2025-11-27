@@ -1,5 +1,5 @@
 import fs, { read } from 'node:fs'
-import process from 'node:process'
+
 import EventEmitter from 'node:events'
 
 import { getDefaultHighWaterMark } from 'node:stream'
@@ -13,8 +13,22 @@ import { encode } from 'node:punycode'
 const app=express()
 
 
-const port=9000
 
-app.listen(port,()=>{
-    console.log(port)
-})
+
+// const stream=fs.createReadStream('./file/jugal.txt' ,{
+//     encoding:'utf-8',
+//     highWaterMark:10
+// })
+
+// stream.on('data' , (chunk) => {    
+//     // console.log(chunk)
+// })
+// stream.on('open', (fd) => {
+//   console.log("File opened:", fd);
+// });
+
+// stream.on('end' , ()=>console.log('complerte'))
+
+
+
+

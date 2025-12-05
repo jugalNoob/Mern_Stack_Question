@@ -2,6 +2,32 @@
 
 Map creates a NEW array by transforming each element.
 
+✅ Simple Definition of map()
+
+map() is a JavaScript array method that creates a new array by applying a
+ function to every element of the original array.
+
+
+const data=['jugal' , 'klaran' , 'anku'].map((elemnt ,index , arr)=>
+  {return  `elemnt ${elemnt} ${index} ${arr}` })
+console.log(data)
+
+
+
+element = jugal
+index = 0
+arr = jugal,klaran,anku
+
+
+[
+  "elemnt jugal 0 jugal,klaran,anku",
+  "elemnt klaran 1 jugal,klaran,anku",
+  "elemnt anku 2 jugal,klaran,anku"
+]
+
+
+
+
 ⭐ Very Simple Examples
 🔹 1. Double numbers
 const nums = [1, 2, 3];

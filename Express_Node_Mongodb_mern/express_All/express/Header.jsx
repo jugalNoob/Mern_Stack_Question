@@ -1,3 +1,23 @@
+----------------------------------------------------------
+✅ What Are Response Headers?
+
+Response Headers are sent from SERVER to CLIENT before sending the body.
+
+They tell the client:
+👉 content type,
+👉 status,
+👉 server info,
+👉 caching rules,
+👉 cookies, etc.
+
+📌 Common Response Headers (Server → Client)
+
+
+
+
+
+
+
 ChatGPT said:
 
 Great question 🚀 — headers are a favorite interview topic because they show how well you understand HTTP protocol + Express.js.

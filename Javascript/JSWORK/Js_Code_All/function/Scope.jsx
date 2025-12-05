@@ -66,7 +66,8 @@ show(); // ✅ Hello
 🏠 3. What is Function Scope?
 
 Answer:
-Variables declared inside a function are accessible only within that function.
+Variables declared inside a function are
+ accessible only within that function.
 
 Example:
 

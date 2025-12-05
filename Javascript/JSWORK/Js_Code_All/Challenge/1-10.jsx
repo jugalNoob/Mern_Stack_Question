@@ -17,6 +17,17 @@ console.log(++one)
 console.log(one++)
 console.log(one++ +  ++one)
 
+
+
+
+// console.log(1 == a + 1);
+
+// 🧠 KEY POINT
+
+// ++a = increment first → then use
+
+// a++ = use first → then increment
+
 let one=10
 // console.log(one++ +  ++one ) // 1+10 + 1+10
 // console.log(one++ + ++one + one++); // 10 + 1 + 10 +1 + 1+11

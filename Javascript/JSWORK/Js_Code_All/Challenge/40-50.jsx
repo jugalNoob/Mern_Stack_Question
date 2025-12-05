@@ -86,6 +86,7 @@ console.log(str== stre)
 Q what Important ? 8
 
 console.log('1' + + '1')
+console.log(+'1'  +  +'1')
 console.log('1' - - '1')
 
 Q what Important ? 8 

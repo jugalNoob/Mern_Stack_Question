@@ -1,10 +1,35 @@
-Perfect 👍 You want a clear list of HTTP status codes that Express uses (since Express just sends standard HTTP codes).
+Perfect 👍 You want a clear list of HTTP status codes 
+that Express uses (since Express just sends standard HTTP codes).
+
+
+
+A status code is a three-digit number sent by the server in an HTTP 
+response that indicates the result of the client’s request. It tells t
+he client whether the request was successful, failed, or needs further action.
+
+
+| Code | Meaning                    | Example / Usage                        |
+| ---- | -------------------------- | -------------------------------------- |
+| 200  | OK                         | Request succeeded, data returned       |
+| 201  | Created                    | Resource created successfully (POST)   |
+| 204  | No Content                 | Request succeeded but no data returned |
+| 301  | Moved Permanently          | URL permanently redirected             |
+| 302  | Found (Temporary Redirect) | Temporary redirect to another URL      |
+| 400  | Bad Request                | Client sent invalid data               |
+| 401  | Unauthorized               | Authentication required                |
+| 403  | Forbidden                  | Access denied                          |
+| 404  | Not Found                  | Resource does not exist                |
+| 500  | Internal Server Error      | Server failed unexpectedly             |
+| 503  | Service Unavailable        | Server overloaded or down              |
+
+
 
 Here’s the breakdown ⬇️
 
 📌 Types of HTTP Status Codes in Express.js
 
-Express.js doesn’t create new codes; it uses standard HTTP status codes.
+Express.js doesn’t create new codes; it uses standard 
+HTTP status codes.
 They are grouped into 5 categories:
 
 🔹 1xx – Informational

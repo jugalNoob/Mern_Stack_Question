@@ -3,7 +3,7 @@ Q why is Node.js single-threaded?
 QHow does node.js handle concurrency  with a single thread?
 Q what are the key  feature of node.js 
 q what is the different betwwen node.js and js in brower?
-Q how 
+
 
 
 

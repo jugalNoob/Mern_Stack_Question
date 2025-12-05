@@ -1,47 +1,175 @@
-10) Common pitfalls (short checklist)
+✅ 🌱 BASIC LEVEL OOPS QUESTIONS
 
-Replacing a method with a string or value (breaks behavior).
+These test your fundamentals.
 
-Forgetting new for constructor functions.
+1. What is OOP?
 
-Using arrow functions for prototype methods that use this (arrow this is lexical).
+Explain 4 pillars:
 
-Accessing private fields (#name) from outside → SyntaxError.
+Encapsulation
 
-Mutating shared objects unintentionally (use Object.freeze or immutability patterns).
+Abstraction
 
-Relying on method overloading — JS uses flexible args instead.
+Inheritance
 
-11) Short quiz (8 quick checks)
+Polymorphism
 
-What happens if you call a constructor function without new and it doesn't guard for it?
+2. What is a Class and Object?
 
-Why would you use a get accessor instead of a method getName()?
+Difference + real example (Car class → Swift Car object).
 
-How do you emulate private data in older JS (pre-# syntax)?
+3. What is Encapsulation?
 
-How to prevent an object being extended/modified?
+Hiding data + exposing functions.
 
-What is the difference between static methods and instance methods?
+4. What is Abstraction?
 
-Give a short code example of composition (not inheritance).
+Hide complex details → show only necessary info.
 
-Explain why myObj.method = "something" is usually a bug.
+5. What is Inheritance?
 
-How to emulate method overloading in JS?
+Child class inherits parent class.
 
-(Use these to test yourself — I can grade your answers if you want.)
+6. What is Polymorphism?
 
-12) Next steps — what I can add for you (pick any):
+One function behaves differently in different contexts.
 
-Convert these examples to TypeScript with interfaces/types.
+7. What is Constructor?
 
-Write unit tests (Jest) for the classes.
+Why it runs automatically when object is created.
 
-Build a small example app demonstrating composition + inheritance.
+8. What are this, new, super keywords?
 
-Make a concise cheatsheet PDF of the final corrected examples.
+Explain meaning and usage.
 
-Create flashcards (Q/A) from the quiz.
+9. What are static methods & properties?
+10. Explain the difference: Class vs Prototype in JavaScript.
+🔥 MID LEVEL OOPS QUESTIONS
 
-I won’t ask which — just tell me which one you want next (or I can start with TypeScript conversion for all snippets).
+More real-world, asked in interviews.
+
+11. Why JavaScript is considered prototype-based OOP?
+12. What is prototypal inheritance in JavaScript?
+13. What is the prototype chain?
+14. Difference between:
+
+Classical OOP vs Prototype-based OOP
+
+Constructor function vs Class
+
+15. What are getters and setters?
+
+16. What is Method Overloading?
+
+Why JS does NOT support real overloading.
+
+17. What is Method Overriding?
+
+18. What are private fields (#variable) in JS?
+
+19. What is Object.create() used for?
+
+20. What is super() and when do you call it?
+
+21. Can we make Singleton in JavaScript?
+
+(VERY COMMON INTERVIEW QUESTION)
+
+22. What is composition vs inheritance?
+
+(“Favor composition over inheritance”—important concept)
+
+🚀 ADVANCED OOPS QUESTIONS
+
+These are asked in system design + Node.js based interviews.
+
+23. What is the diamond problem in inheritance?
+24. What is Multiple Inheritance?
+
+Does JS support it?
+
+25. What is Mixins?
+
+How JS achieves multiple inheritance.
+
+26. What is SOLID Principles?
+
+Explain all 5:
+
+Single Responsibility
+
+Open/Close
+
+Liskov Substitution
+
+Interface Segregation
+
+Dependency Inversion
+
+27. What is Dependency Injection?
+
+Very common in backend interviews.
+
+28. What is Polymorphism in JS via overriding?
+29. What is the difference between:
+
+Public
+
+Private
+
+Protected (not supported by JS)
+
+Static
+
+30. What is Duck Typing?
+
+Very important for JavaScript.
+
+🧠 EXPERT / ARCHITECTURE LEVEL QUESTIONS
+
+These are very strong interview questions.
+
+31. Difference between OOP and Functional programming?
+32. Why Node.js uses prototype-based OOP instead of classical OOP?
+33. What is Abstract Class vs Interface?
+
+(Though JS doesn’t have built-in interface)
+
+34. Can you implement an Interface in JavaScript?
+
+(Use TypeScript or manual checks)
+
+35. What are Design Patterns?
+
+Types of patterns:
+
+Creational
+
+Structural
+
+Behavioral
+
+36. Explain Factory pattern with code.
+37. Explain Singleton pattern with code.
+38. Explain Observer pattern (used in Node EventEmitter).
+39. Explain Decorator pattern.
+40. Explain Strategy pattern.
+41. What is the Module Pattern in Node.js?
+42. How OOP helps in scalable architecture?
+⭐ Do you want answers with examples?
+
+I can provide:
+
+✔ Full explanation
+✔ Real-world examples
+✔ JavaScript code
+✔ Diagram style explanation
+
+Tell me which format you want:
+
+1️⃣ Only questions
+2️⃣ Questions + short answers
+3️⃣ Deep explanations with code
+4️⃣ Full interview cheat sheet with examples
+
+Just choose one!

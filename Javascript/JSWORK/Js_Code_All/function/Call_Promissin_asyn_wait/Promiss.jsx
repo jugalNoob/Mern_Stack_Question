@@ -1,3 +1,23 @@
+But here you are NOT rejecting.
+You are resolving:
+
+resolve(undefined)
+
+
+This is valid.
+resolve() can accept any value:
+
+resolve(10)
+
+resolve(null)
+
+resolve({})
+
+resolve(undefined) ← your case
+
+resolve(Promise)
+
+
 Below is the ULTIMATE complete guide for
 Call → Promise → async/await
 from basic → mid-level → advanced,

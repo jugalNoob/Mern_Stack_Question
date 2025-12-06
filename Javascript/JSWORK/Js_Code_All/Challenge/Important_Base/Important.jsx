@@ -223,3 +223,103 @@ console.log(new String('js') instanceof String); // true
 | Works on | Primitives & objects   | Only objects                 |
 | Example  | `typeof [] → "object"` | `[] instanceof Array → true` |
 | Use case | Type check             | Object/class check           |
+
+
+
+Q what is meiang Evaluates left to right?
+
+
+💡 Summary Table
+
+Operator Type
+
+
+
+| Operator Type      | Associativity |   |              |
+| ------------------ | ------------- | - | ------------ |
+| `+`, `-`, `*`, `/` | Left → Right  |   |              |
+| `==`, `<`, `>`     | Left → Right  |   |              |
+| `=` (assignment)   | Right → Left  |   |              |
+| `&&`, `            |               | ` | Left → Right |
+
+
+
+ChatGPT said:
+
+Ah! You’re asking about “evaluates left to 
+right” in JavaScript (or programming in general). Let me explain clearly.
+
+🔹 Meaning of “Evaluates Left to Right”
+
+It simply means:
+
+When multiple expressions or operators appear in a statement, JavaScript processes them from left to right.
+
+🔹 Example 1: Arithmetic Operators
+let result = 10 - 5 + 2;
+console.log(result);
+
+✅ Step by Step
+
+Expression: 10 - 5 + 2
+
+Left to right:
+
+10 - 5 = 5
+
+5 + 2 = 7
+
+Output: 7
+
+Even though + and - have the same precedence, JS goes left to right.
+
+🔹 Example 2: Comparison Operators
+console.log(1 < 2 < 3);
+
+Step by Step (Left to Right)
+
+1 < 2 → true
+
+true < 3 → 1 < 3 → true
+
+Output: true
+
+This is a classic tricky JS interview question.
+
+🔹 Example 3: Logical Operators
+let a = true || false && false;
+console.log(a);
+
+✅ Step by Step
+
+Precedence: && > ||
+
+Evaluate false && false → false
+
+Then true || false → true
+
+Within the same precedence, JS evaluates left to right.
+
+🔹 Key Points
+
+Operator precedence decides which operators are applied first.
+
+Associativity decides left-to-right or right-to-left evaluation.
+
+Most operators (like +, -, *, /) → left-to-right
+
+Assignment (=) → right-to-left
+
+🔹 Example 4: Assignment (Right-to-left)
+let a, b;
+a = b = 5;
+console.log(a, b);
+
+
+Step by step:
+
+b = 5 → b = 5
+
+a = b → a = 5
+
+Assignment operators are right-to-left, unlike arithmetic operators.

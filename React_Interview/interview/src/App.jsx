@@ -1,44 +1,21 @@
-import React, { useRef } from 'react';
-
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './page/Home';
+import About from './page/About';
+import Nav from './page/Nav';
+import Error from './page/Error';
 function App() {
-  const inputRef = useRef(null);
-  const buttonRef = useRef(null); // ref for button
-
-  // Input manipulation
-  const handleClick = (e) => {
-    e.preventDefault(); // Prevent form submission
-    console.log(inputRef);
-    console.log(inputRef.current); // Logs the input element
-    inputRef.current.focus(); // Focus input
-    inputRef.current.style.color = 'red';
-    inputRef.current.placeholder = 'Enter User Password';
-    inputRef.current.value = '12345';
-  };
-
-  // Button manipulation
-const ClickToggle = () => {
-  if (buttonRef.current.style.color === 'red') {
-    // Currently red → change to blue
-    buttonRef.current.style.color = 'blue';
-    buttonRef.current.innerText = 'Click me';
-  } else {
-    // Otherwise → change to red
-    buttonRef.current.style.color = 'red';
-    buttonRef.current.innerText = 'Toggled!';
-  }
-};
-
   return (
-    <div>
-      <button ref={buttonRef} onClick={ClickToggle}>
-        Toggle Button
-      </button>
+    <BrowserRouter>
+      <Nav />   {/* Navbar should be here */}
 
-      <form>
-        <input type="text" ref={inputRef} placeholder="Type something..." />
-        <button onClick={handleClick}>Click Button</button>
-      </form>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+    <Route path="/about/:id" element={<About />} />
+      <Route path="*" element={<Error />} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 

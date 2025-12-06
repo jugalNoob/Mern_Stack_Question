@@ -130,3 +130,54 @@ Would print 20 if the first line didn't throw error
 
 ✅ Result
 ReferenceError: Cannot access 'variable' before initialization
+
+
+4::::::::::::: ----------------->>
+function Numver(a , b ,c){
+    return a+b,c
+}
+
+console.log(Numver(10 , 20))
+console.log(Numver(10 , 20 , 'jugal'))
+let names='jugal sharma'
+console.log(Numver(10 , 20 , names))
+
+❗ IMPORTANT PART — This line is the problem
+return a + b, c;
+This is NOT returning a + b.
+This is using the comma operator in JavaScript.
+⚠️ What is the comma operator?
+The comma operator:
+✔ Evaluates left to right
+✔ Returns only the last value
+Example:
+let value = (5, 10, 20);
+console.log(value); // 20
+🔥 So this code:
+return a + b, c;
+Works like:
+Evaluate a + b
+Evaluate c
+Return only c
+📌 Output Explanation
+1️⃣
+Numver(10, 20)
+Here c is undefined, so return value = undefined
+👉 Output:
+undefined
+2️⃣
+Numver(10, 20, 'jugal')
+Here c = "jugal"
+👉 Output:
+jugal
+3️⃣
+Numver(10, 20, names)
+Here c = "jugal sharma"
+👉 Output:
+jugal sharma
+❗ WHY THIS IS IMPORTANT
+Because many developers think:
+return a + b, c; 
+returns a + b
+But actually it returns only c.
+⚠️ This is a common bug in JavaScript.

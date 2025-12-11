@@ -1,0 +1,115 @@
+// ✔ How JS engines store dense vs sparse arrays
+
+
+7️⃣ Empty slots + join 
+const arr = [1,,3];
+console.log(arr.join('-')); 
+✅ Why join() prints nothing for empty slots?
+Array.prototype.join():
+Converts each element to a string
+BUT skips holes
+Only prints the separator
+
+🔍 Example breakdown
+const arr = [1,,3];
+console.log(arr.join(','));  
+Array positions:
+index 0 → 1
+index 1 → EMPTY (hole)
+index 2 → 3
+join(',') produces:
+index 0 → "1"
+index 1 → "" (because hole)
+index 2 → "3"
+So output:
+1,,3
+There are two commas → because the hole becomes an empty string.
+
+
+000::::::::::::::::::::: ------------------------------------------>>>>
+let str='jugal sharma'
+console.log(str.split(' '))
+console.log(Array.from(str))
+Converts the string into an array of characters.
+
+You can then use array methods like .map(), .filter(), .forEach().
+
+Example:
+
+Array.from(str).map(c => console.log(c.toUpperCase()));
+
+for(let i=0; i<str.length; i++){
+    console.log(str[i])
+    
+Accesses each character by index.
+
+Works fine for simple ASCII characters.
+
+Problem: For some Unicode characters 
+(like emojis), str[i] may break the character
+ because they can be 2 code units:
+    
+}
+| Method                   | Works with emojis/unicode  | Returns array | Can use array methods? |
+| ------------------------ | -------------------------- | ------------- | ---------------------- |
+| `Array.from(str)`        | ✅ Yes                      | ✅ Yes         | ✅ Yes                  |
+| `for` loop with `str[i]` | ❌ Sometimes breaks unicode | ❌ No          | ❌ No                   |
+
+
+6️⃣ Array.from and length traps
+console.log(Array.from("abc")); // ?
+✔ Why
+Because Array.from() loops over each character of the string.
+console.log(Array.from({length:3}, (_,i)=>i)); // ?
+
+0:::::::::::: ------------------------>>>
+const arr = [1,2];
+console.log(arr.concat([3,[4,5]]));
+const arr = [1,2];
+console.log(arr.concat([3,[4,5]]).flat());
+0:::::::::::::: -------------------------->>>
+❌ 7. delete keyword → DO NOT USE
+✅ Why delete keeps the array length same?
+
+Because delete removes the VALUE, not the INDEX.
+
+JavaScript arrays are basically objects with numeric keys.
+
+Example:
+
+let data = [10, 20, 30];
+Internally:
+{
+  0: 10,
+  1: 20,
+  2: 30,
+  length: 3
+}
+When you do:
+delete data[1];
+JavaScript removes only the property, NOT the slot.
+Internally becomes:
+{
+  0: 10,
+  1: empty, ❗ (deleted property)
+  2: 30,
+  length: 3  ← untouched
+}
+So:
+console.log(data);      
+// [10, empty, 30]
+console.log(data.length);
+// 3   ← because length didn’t change
+✅ Why length does NOT shrink?
+Because .length depends on the highest index + 1.
+delete does NOT shift elements.
+delete does NOT reindex.
+delete does NOT update .length.
+It just removes the key → leaving a hole = sparse array.
+🔥 Example showing the hole
+let data = [10,20,30];
+delete data[1];
+console.log(1 in data); // false → key removed
+console.log(data[1]);   // undefined → hole
+console.log(data.length); // 3
+Array still has 3 slots, but one is empty (a hole).

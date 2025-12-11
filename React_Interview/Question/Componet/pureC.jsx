@@ -1,5 +1,6 @@
 ✅ Simple Definition (Easy to Remember)
-👉 A Pure Component only re-renders when its props or state actually change.
+👉 A Pure Component only re-renders when its 
+props or state actually change.
 
 If the new props/state are the same as before, React will skip rendering to improve performance.
 

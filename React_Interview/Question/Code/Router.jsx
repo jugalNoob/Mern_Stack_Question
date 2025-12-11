@@ -1,3 +1,11 @@
+If you want, I can create:
+
+✅ React Router Protected Routes (Auth based)
+✅ PrivateRoute component
+✅ Role-based routing
+✅ Layout components (Nav always shown, others hidden)
+
+
 ⭐ react-router-dom (Best Choice)
 ✔ Because:
 

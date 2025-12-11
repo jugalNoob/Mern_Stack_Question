@@ -132,6 +132,16 @@ Would print 20 if the first line didn't throw error
 ReferenceError: Cannot access 'variable' before initialization
 
 
+3::: ========================>>>
+function Duffekt(name='karan'){
+
+    return `this is my name ${name}`
+}
+console.log(Duffekt('jugal sharma'))
+console.log(Duffekt())
+
+
+
 4::::::::::::: ----------------->>
 function Numver(a , b ,c){
     return a+b,c

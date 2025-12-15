@@ -1,6 +1,7 @@
 ✅ What is a Controlled Component? (Simple Explanation)
 
-A controlled component is an input field whose value is controlled by React State, not by the browser.
+A controlled component is an input field whose value is 
+controlled by React State, not by the browser.
 
 ➡️ React owns the value.
 ➡️ The value changes only through state (useState).

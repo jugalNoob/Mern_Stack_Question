@@ -2,7 +2,8 @@
 👉 A Pure Component only re-renders when its 
 props or state actually change.
 
-If the new props/state are the same as before, React will skip rendering to improve performance.
+If the new props/state are the same as before, React will
+ skip rendering to improve performance.
 
 🧠 Why “Pure”?
 

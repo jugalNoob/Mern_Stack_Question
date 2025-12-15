@@ -1,6 +1,7 @@
 🚀 What is a Higher-Order Component (HOC)?
 
-A Higher-Order Component (HOC) is a function that takes a component and returns a new component with some additional functionality.
+A Higher-Order Component (HOC) is a function that takes a
+ component and returns a new component with some additional functionality.
 
 👉 Formula:
 

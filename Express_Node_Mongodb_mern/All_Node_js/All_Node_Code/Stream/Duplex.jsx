@@ -31,6 +31,30 @@ duplexStream.on("data", (data) => console.log("Readable:", data.toString()));
 
 
 
+
+
+const duplexs=new Duplex({
+
+    write(chunk , encoding , callback){
+            console.log("WRITE:", chunk.toString());
+            callback()
+       
+   
+    },
+
+    read(){
+        this.push('hi i am read stream')
+        this.push(null)
+    }
+})
+
+duplexs.write('hi i am from write stresam')
+duplexs.end()
+await pipeline(duplexs , process.stdout)
+
+
+
+
 ✔ This stream can:
 
 Accept data (write side)

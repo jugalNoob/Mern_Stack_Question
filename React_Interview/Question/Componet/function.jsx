@@ -7,7 +7,8 @@
 
  🟦 Interview Definition (Perfect)
 
-A function component is a stateless or stateful React component written as a JavaScript function.
+A function component is a stateless or stateful React component written
+ as a JavaScript function.
 It uses Hooks (useState, useEffect, etc.) to manage state and lifecycle.
 It returns JSX that defines the UI.
 

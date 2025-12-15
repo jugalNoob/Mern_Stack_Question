@@ -1,6 +1,7 @@
 ✅ Q1. What are Props?
 
-Props (short for “properties”) are used to pass data from one component (Parent) to another component (Child).
+Props (short for “properties”) are used to pass data from
+ one component (Parent) to another component (Child).
 
 Props are read-only
 

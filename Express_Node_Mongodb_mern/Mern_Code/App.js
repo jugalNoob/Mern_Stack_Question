@@ -9,16 +9,13 @@ const app = express()
 app.use(express.json())  //parse JSON Bodies
 let port = 9000
 import { Duplex } from 'node:stream';
+import jsonwebtoken from 'jsonwebtoken';
+
+const JWT=jsonwebtoken;
 
 
-// --- >> 400 file -- > (zip) -- > 400MB Write 
-
-// -->> stream Read (Sample.txt) ---> Zipper ---> fs Write  Stream
 
 
-const stream =fs.createReadStream('.file/jugal.txt' , {
-    encoding:'utf-8'
-})
 
 
 

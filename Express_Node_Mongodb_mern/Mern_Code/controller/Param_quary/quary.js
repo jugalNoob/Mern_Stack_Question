@@ -1,6 +1,6 @@
 const GetQuary=async(req,res)=>{
     // URL Example:
-    // http://localhost:9000/search?name=jugal&age=22
+    // http://localhost:9000/home/search?name=jugal&age=22
 
     res.send({
         message: "Query Params Example",

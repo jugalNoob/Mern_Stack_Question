@@ -1,6 +1,7 @@
 🧠 What is useEffect?
 
-useEffect is a React Hook that lets you run code after the component renders.
+useEffect is a React Hook that lets you run code 
+after the component renders.
 
 It is used for:
 

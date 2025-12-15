@@ -1,0 +1,105 @@
+Http  Crash Course  
+
+Q what is Url , Uri , Urn ?
+
+
+URL, URI, and URN are terms related to resource identification on the web. While they may sound similar, they serve different purposes. Let’s break them down:
+
+1. URI (Uniform Resource Identifier)  :::::::::::::
+Definition: A URI is a generic term that refers to any string of characters used to identify a resource, whether it be on the web or elsewhere. A URI can identify a resource either by location, name, or both.
+Components: A URI can be a URL, URN, or both, depending on how the resource is identified.
+scheme:[//authority]path[?query][#fragment]
+Example of a URI:
+bash
+Copy code
+https://example.com/resource?id=123#section2
+
+
+In this case, the scheme is https, the path is /resource, and there’s a query parameter id=123 and a fragment #section2. This is both a URL and a URI because it identifies the resource by location (it's reachable via HTTP).
+
+
+2. URL (Uniform Resource Locator) ::::::::::::::
+Definition: A URL is a specific type of URI that provides the location of a resource. In other words, it tells you where a resource is located and how to access it, usually via protocols like HTTP, HTTPS, FTP, etc.
+Components: A URL usually contains:
+Scheme: Protocol used (e.g., http, https, ftp).
+Host/Authority: Domain name or IP address.
+Path: The specific resource within the host.
+Port (optional): The port number (e.g., :80, :443).
+Query (optional): Query parameters (e.g., ?id=123).
+Fragment (optional): A section of the resource (e.g., #section2).
+Example of a URL:
+arduino
+Copy code
+https://www.example.com/index.html?user=john
+This URL specifies the protocol (https), the host (www.example.com), the path (/index.html), and includes a query (?user=john).
+A URL locates a resource by providing the means to retrieve it (typically over a network).
+
+
+3. URN (Uniform Resource Name) :::::::::::::::::
+Definition: A URN is another type of URI that names a resource without specifying its location or how to retrieve it. It identifies a resource by name in a persistent way, regardless of its location.
+Components: A URN has the following format:
+urn:<namespace>:<resource-name>
+Example of a URN:
+css
+Copy code
+urn:isbn:0451450523
+In this example, the URN uses the namespace isbn (International Standard Book Number) to uniquely identify a specific book, but it does not provide the location of the book.
+
+
+
+Key Differences:
+Term	Stands for	Purpose	Example
+URI	Uniform Resource Identifier :: 	Generic term for identifying a resource	:: https://example.com/resource?id=123
+URL	Uniform Resource Locator	:: Identifies a resource by its location ::	https://example.com/index.html
+URN	Uniform Resource Name	:: Identifies a resource by name (not location)	:: urn:isbn:0451450523
+
+Q what are Http Headers ?
+
+Ans: Metadata  --> Key -value sent along with request & response
+
+--->Caching , authentication , managa state
+x-prefix->2012 (x-deprecated)
+
+
+.Request Header   --> from client 
+.Respones header  --> from server 
+.Representation Header --> encoding / Compression 
+.Payload header  --> data 
+
+
+
+Q what is Http methods ?  :::::: ..............
+
+Basic set Of Operations that can be used To Interact 
+with server 
+
+
+..Get  -- > retrieve a resource 
+
+..Head  --? No message body (response headers only)
+
+..Options --> what Operations are available  
+
+..Trace -->LoopBack test (get same data)
+
+..Delete  --> remove a resourse 
+
+..Put  --> resplace a resourse
+
+..Post --> interact with resource (Mostly add)
+
+..Patch  --> change part of a resourse
+
+
+Q what is Status Code ?
+
+.. 1xx Infromation 
+
+.. 2xx Success 
+
+..3xx Redirection 
+
+.. 4xx Client error 
+
+.. 5xx Server error 
+

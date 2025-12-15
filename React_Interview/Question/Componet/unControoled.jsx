@@ -1,8 +1,10 @@
-Here is the clearest and simplest explanation of an Uncontrolled Component in React 👇
+Here is the clearest and simplest explanation
+ of an Uncontrolled Component in React 👇
 
 ✅ Uncontrolled Component (Simple Definition)
 
-An uncontrolled component is a form input where the value is NOT controlled by React state.
+An uncontrolled component is a form input where the value 
+is NOT controlled by React state.
 The browser (DOM) manages the input value.
 
 You use useRef to read the value when needed.

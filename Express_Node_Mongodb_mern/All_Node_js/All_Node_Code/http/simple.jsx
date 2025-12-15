@@ -1,3 +1,7 @@
+  http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end(`Hello from worker ${process.pid}\n`);
+  }).listen(8000);
 
 
 const server = createServer((req, res) => {

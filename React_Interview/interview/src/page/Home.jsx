@@ -1,47 +1,30 @@
-import React, { useState } from "react";
+import React,{useState,useMemo} from 'react'
+
 
 function Home() {
-  const [inputValue, setInputValue] = useState("");  
-  const [names, setNames] = useState([]);            
+  const [name  , setName]=useState('')
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  function ExpensiveCaluation({num}){
+    const computerValue=useMemo(()=>{
+    let result=0
+    for(let i=0; i< num+100; i++){
+      
+      result +=i;
+    }
+    return result;
+    },[num])
 
-    // Convert input string → array
-    const list = inputValue.split(",").map(item => item.trim());
-setNames(prev => [...prev, ...inputValue.split(",")]);
-    // Append new values (do NOT delete old)
-    setNames(prev => [...prev, ...list]);
-    console.log(names)
-
-    setInputValue(""); // Clear input if you want
-  };
+  }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter comma separated names"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-        <br /><br />
-        <button type="submit">Click</button>
-      </form>
 
-      <h3>Final Array:</h3>
-      <pre>{JSON.stringify(names)}</pre>
+<h1>computer Value: {computerValue}</h1>
     </div>
-  );
+  )
 }
 
-export default Home;
-
-
-// ###
-
-
+export default Home
 
 
   // setState({provider , signer , address})   

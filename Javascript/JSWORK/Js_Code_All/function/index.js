@@ -1,8 +1,17 @@
 
-// Answer:
-// 2
 
-// Why:
+
+// // function Foo() {
+//     let a = b = 0;  // ⚠️ tricky line
+// console.log(a)
+//     a = a + 1;
+//     console.log(typeof(a)); // number
+//     return a;
+// }
+
+// console.log(Foo());
+
+
 
 // var allows redeclaration
 

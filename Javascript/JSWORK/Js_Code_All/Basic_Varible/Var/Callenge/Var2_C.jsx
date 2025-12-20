@@ -51,12 +51,24 @@ console.log(10 !== 10)
 
 
 000000000 ::::::::::::::::::::------------------->>>
+
+With ==, booleans are converted to numbers first.
+
+This is boolean + string + == coercion, and the key is 
+the order of conversion
+
 5️⃣ Boolean Conversion (Hidden Trap)
 true == "1"   // true
 false == "0"  // true
 Why?
 true  → 1
 false → 0
+
+🧩 Final Mental Model
+== sees boolean → make it number
+== sees string + number → make string number
+compare numbers
+
 
 
 

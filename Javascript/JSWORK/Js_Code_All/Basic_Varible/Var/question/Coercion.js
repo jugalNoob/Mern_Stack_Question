@@ -1,5 +1,51 @@
+🧠 What is Type Coercion?
+
+Type coercion = JavaScript automatically converts one 
+type to another when required by an operator or context.
 
 
+That feeling is 100% valid 👍
+Most developers first think coercion is a bug — but 
+it’s actually a design trade-off in JavaScript.
+
+
+🎯 Truth (Simple)
+
+Coercion is not a bug — it’s a feature with dangerous side-effects.
+
+JavaScript was designed to:
+
+Be forgiving
+
+Work easily with user input (strings)
+
+Avoid throwing errors
+
+But that flexibility caused weird behavior.
+
+
+
+🧠 Interview Summary <Table>
+| Context         | Coercion Type  |    |                       |
+| --------------- | -------------- | -- | --------------------- |
+| `+` with string | To string      |    |                       |
+| `- * / %`       | To number      |    |                       |
+| `< > <= >=`     | To number      |    |                       |
+| `==`            | Multiple rules |    |                       |
+| `===`           | ❌ No coercion  |    |                       |
+| `if / while`    | To boolean     |    |                       |
+| `&&             |                | !` | To boolean (decision) |
+| Unary `+`       | To number      |    |                       |
+
+
+
+🎯 One-Line Interview Answer
+
+Type coercion happens when JavaScript expects a specific 
+type due to operators, comparisons, conditions, or context.
+
+
+</Table>
 == vs === (Short Definition)
 🔹 == (Loose Equality)
 
@@ -286,7 +332,8 @@ Objects → primitive
 
 Short answer (interview one-liner):
 
-JavaScript allows coercion to make the language flexible, beginner-friendly, and fast for early web development.
+JavaScript allows coercion to make the language
+ flexible, beginner-friendly, and fast for early web development.
 
 Now the real reasons 👇
 

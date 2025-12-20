@@ -29,15 +29,73 @@ call() works because it explicitly assigns the object you pass as the this value
 0000:::::::::::: ------------------->>
 // execution context step-by-step (Memory phase + Execution phase)
 
-Names() //show me error   ReferenceError: Cannot access 'ages' before initialization
-function Names(){
+console.log('hwllo jugal');  // → "hwllo jugal"
 
-    console.log(ages)
+Names();                     // → undefined (explained below)
+
+function Names() {
+    console.log(ages); 
 }
-let ages=200
 
-Names() //show me  answer 
+var ages = 200;
 
+Names();                     // → 200
+
+
+
+Step-by-Step Explanation
+Here’s why you see different results when calling Names() at different times.
+1. First call: Names() → logs undefined
+Even though the function is declared after the call, JavaScript hoists (moves to the top) function declarations.
+So the engine actually sees this order during execution:
+JavaScriptfunction Names() {       // ← Hoisted to the top!
+    console.log(ages); 
+}
+
+console.log('hwllo jugal');
+Names();                 // Called here
+var ages = 200;          // ← var declaration is also hoisted, but not the assignment!
+
+Names();
+Important: var ages is hoisted, but the assignment = 200 is not.
+So at the time of the first Names() call:
+
+The variable agesexists (because of hoisting),
+But it has not been assigned yet → its value is undefined.
+
+Therefore:
+JavaScriptconsole.log(ages);  // → undefined
+And since the function doesn't return anything, calling Names() itself returns undefined → that's why you see "undefined" in the console after the call.
+2. Second call: Names() → logs 200
+Now the line var ages = 200 has already executed.
+So ages now holds the value 200.
+When you call Names() the second time:
+JavaScriptconsole.log(ages);  // → 200
+Again, the function returns nothing → undefined, but the important part is the logged value inside: 200.
+Summary Table
+
+
+Call,What is ages at that moment?,console.log(ages) inside function,Why?
+First Names(),undefined (hoisted but not initialized),logs undefined,Assignment = 200 hasn't happened yet
+Second Names(),200,logs 200,Assignment has now executed
+
+
+Bonus: How to Avoid This Confusion
+Use let or const instead of var — they are not hoisted in the same way (temporal dead zone):
+JavaScriptconsole.log('hwllo jugal');
+
+Names();  // → ReferenceError: Cannot access 'ages' before initialization
+
+function Names() {
+    console.log(ages); 
+}
+
+let ages = 200;  // or const
+
+Names();  // → 200
+With let/const, the first call would throw an error instead of silently logging undefined, which is safer and clearer.
+That's the classic "var hoisting" gotcha in JavaScript! 😊
+Let me know if you want to see more hoisting examples!
 
 
 0000::::::::::::::------------>>>

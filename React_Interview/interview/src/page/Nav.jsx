@@ -13,7 +13,7 @@ function Nav() {
       <br />
 
       {/* Give real ID Value */}
-      <NavLink to="/about/10">About</NavLink>
+      <NavLink to="/about">About</NavLink>
 
       <Outlet />
     </div>

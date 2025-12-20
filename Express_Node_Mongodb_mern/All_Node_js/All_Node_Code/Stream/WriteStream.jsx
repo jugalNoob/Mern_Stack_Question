@@ -30,6 +30,15 @@ stream.on('error', (err) => {
 });
 
 
+///////////// -------------------->>Pipline  --------------->>
+✅ Key points:
+
+writeStream → writable, cannot be first argument to pipeline.
+
+pipeline(readable, writable) → proper usage.
+
+await pipeline(...) requires 'stream/promises'.
+
 ::::::::::::::::::::With Zlib ::::::::::::::::::::::::::
 
 // Step 1️⃣: Create a writable stream to write data

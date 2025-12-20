@@ -23,6 +23,17 @@ JavaScript follows BODMAS / PEMDAS rules:
 | `+` Addition       | Lower    |
 | `-` Subtraction    | Lower    |
 
+console.log(10 + 10 *5 / 2)
+50 / 2 = 25
+Expression becomes:
+
+10 + 25
+
+
+
+🧠 Mental Model (Interview Friendly)
+* and /  → first (left to right)
++ and -  → last
 
 
 console.log(10 + 6 / 2 * 3);
@@ -47,6 +58,7 @@ let y=(x=10)+3
 console.log(x , y)
 
 🧠 Why does this happen?
+
 Because an assignment (x = 10) returns the assigned value:
 (x = 10)   → 10
 So the expression becomes:
@@ -137,6 +149,7 @@ Q what ? 3
 let str = "Hello";
 str[0] = "J";  // ❌ No effect
 console.log(str.includes('J')); // "Hello"
+console
 
 
 

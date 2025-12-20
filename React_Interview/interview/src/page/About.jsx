@@ -1,29 +1,17 @@
-import React from 'react'
-import { useParams , useNavigate,useLocation } from 'react-router-dom'
+import React from 'react';
 
-
-function About() {
-const gotohome=useNavigate()
-
-  const { id } = useParams();
-
-    const location = useLocation();
-
-  console.log(location);
-
-  const ClickB=()=>{
-    gotohome('/')
-  }
-
+function About({ user }) {
   return (
     <div>
-      <h1>About Page</h1>
-      <p>ID: {id}</p>
-            <p>Current Path: {location.pathname}</p>
-            <p>current pathkey {location.key}</p>
-      <button onClick={ClickB}>goHome</button>
+      <h2>User Details</h2>
+      <p>Name: {user.name}</p>
+      <p>Age: {user.age}</p>
     </div>
-  )
+  );
 }
 
-export default About
+export default About;
+
+// {users.map((user, index) => (
+//   <UserCard key={index} {...user} />
+// ))}

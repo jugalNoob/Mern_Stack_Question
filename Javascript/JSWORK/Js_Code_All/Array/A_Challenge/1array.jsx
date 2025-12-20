@@ -114,7 +114,9 @@ Use compare function to fix:
 
 
 🔥 WHY ARE THEY DIFFERENT?
-✔ Because JavaScript’s default sort() sorts values as STRINGS, not numbers.
+
+✔ Because JavaScript’s default sort() sorts values as
+ STRINGS, not numbers.
 
 ❌ 1. Default sort → String sorting (lexicographical order)
 

@@ -23,6 +23,23 @@ console.log(myUrl.hash)
 console.log(myUrl.port)
 
 
+
+| Property   | Example Value                                                  | Description            |
+| ---------- | -------------------------------------------------------------- | ---------------------- |
+| `href`     | full URL                                                       | Complete URL string    |
+| `protocol` | "https:"                                                       | URL scheme             |
+| `host`     | "sub.example.com:8080"                                         | hostname + port        |
+| `hostname` | "sub.example.com"                                              | domain only            |
+| `port`     | "8080"                                                         | port number            |
+| `pathname` | "/p/a/t/h"                                                     | path after domain      |
+| `search`   | "?query=string"                                                | query string           |
+| `hash`     | "#hash"                                                        | fragment identifier    |
+| `origin`   | "[https://sub.example.com:8080](https://sub.example.com:8080)" | protocol + host + port |
+| `username` | "user"                                                         | username               |
+| `password` | "pass"                                                         | password               |
+
+
+
 //// Create Url ------------------>>
 const myURL = new URL('https://example.org');
 myURL.pathname = '/a/b/c';

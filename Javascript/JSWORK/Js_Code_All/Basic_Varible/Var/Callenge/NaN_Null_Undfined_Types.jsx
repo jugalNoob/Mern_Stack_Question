@@ -1,7 +1,8 @@
 1️⃣ typeof operator (WHAT is it?)
 📌 Definition
 
-typeof tells you the primitive type of a value (with some historical quirks).
+typeof tells you the primitive type of a value
+ (with some historical quirks).
 
 It is:
 
@@ -447,3 +448,83 @@ console.log(isNaN("abc")); // true  → cannot convert
 | `Number.isNaN()` | strict version (no conversion)                           | `Number.isNaN("abc")` | false  |
 
 
+
+// NaN is never equal to anything, not even itself.
+
+// console.log(NaN == NaN);
+// console.log(NaN === NaN);
+
+
+
+Your Code
+console.log(isNaN(10));      // false
+console.log(isNaN("hello")); // true
+
+🧠 Key Rule
+
+isNaN(value) first tries to convert the value to
+ a number, then checks if the result is NaN.
+
+1️⃣ isNaN(10)
+
+10 is already a number
+
+Is it NaN? ❌ No
+
+✅ Result: false
+
+Number(10) => 10
+Number(10) is NaN? false
+
+2️⃣ isNaN("hello")
+
+"hello" is a string
+
+JS tries to convert it to a number:
+
+Number("hello") // NaN
+
+
+Is it NaN? ✅ Yes
+
+✅ Result: true
+
+🔑 Mental Model
+isNaN(x)
+= Number(x)
+= check if result === NaN
+
+⚠️ Common Confusion
+1️⃣ Strings containing numbers
+isNaN("123") // false
+
+
+✅ "123" → Number("123") → 123 → not NaN
+
+2️⃣ Empty string
+isNaN("") // false
+
+
+✅ "" → Number("") → 0 → not NaN
+
+3️⃣ Null
+isNaN(null) // false
+
+
+✅ null → Number(null) → 0 → not NaN
+
+🔬 Newer, safer method
+
+Number.isNaN()
+
+Does not coerce
+
+Only returns true if value is actually NaN
+
+Number.isNaN(10)      // false
+Number.isNaN("hello") // false  ✅ safer
+Number.isNaN(NaN)     // true
+
+🎯 Interview One-Liner
+
+isNaN coerces the value to a number first; 10 becomes 10 (not NaN → false), "hello" becomes NaN → true.

@@ -92,7 +92,15 @@ false → 0
 
 
 00000000000000 :::::::::::::::::::::::---------------------->>>
-7️⃣ console.log(0 === false)
+
+7️⃣ console.log(0 == false)
+
+2️⃣ false == 0 (This is the tricky one)]
+
+This uses the == coercion rules.
+
+Simple Rule (MEMORIZE)
+If one side is boolean, JavaScript converts it to a number.
 console.log(0 === false);
 ✅ Output
 false
@@ -107,3 +115,26 @@ Always use === in real projects
 
 
 00000000:::::::::::: ------------->>
+
+console.log(false == null);
+❌ What JS does NOT do here
+Many people think:
+false → 0
+null  → 0
+
+❌ This never happens with ==.
+If it did, result would be true — but JS explicitly blocks this.
+
+| Expression           | Result |
+| -------------------- | ------ |
+| `null == undefined`  | true   |
+| `null == false`      | false  |
+| `null == 0`          | false  |
+| `null == ""`         | false  |
+| `null === undefined` | false  |
+
+Simple Answer (MEMORIZE THIS)
+
+null only loosely equals undefined — nothing else.
+
+That’s it. No boolean or number coercion happens with null.

@@ -1,4 +1,97 @@
-🚀 20+ Intermediate/Advanced String Tricks in JavaScript
+
+If you want next:
+🚀 JSON.stringify vs toString
+🚀 Why "10" === 10 false but "10" == 10 true
+🚀 Deep dive: Serialization vs Deserialization
+
+let str="jugal"
+console.log(JSON.stringify(str) === str)
+❓ Why is it false even though both are strings?
+
+Because the CONTENT of the strings is different, not the type.
+
+🔍 What JSON.stringify(str) really returns
+JSON.stringify('jugal')
+
+➡️ Result:
+'"jugal"'
+⚠️ Notice carefully:
+
+| Value       | Explanation                      |
+| ----------- | -------------------------------- |
+| `'jugal'`   | Plain string                     |
+| `'"jugal"'` | String **with quotes inside it** |
+
+
+
+So you're comparing:
+
+'"jugal"' === 'jugal' // ❌ false
+
+🔬 Proof
+let str = 'jugal';
+
+console.log(str);                 // jugal
+console.log(JSON.stringify(str)); // "jugal"
+
+console.log(typeof str);                 // string
+console.log(typeof JSON.stringify(str)); // string
+
+
+✔ Both are string type
+❌ But values are not equal
+
+🧠 Why JSON.stringify adds quotes?
+
+JSON is a data format, not JS code.
+
+In JSON:
+
+Strings must be wrapped in double quotes
+
+"jugal"
+
+
+So JavaScript converts:
+
+'jugal' → "jugal"
+
+
+…and returns it as a string representation.
+
+🧪 Reverse it using JSON.parse
+JSON.parse(JSON.stringify(str)) === str
+
+
+✔ Output:
+
+true
+
+
+Because:
+
+JSON.parse('"jugal"') // 'jugal'
+
+🧩 Mental Model (Very Important)
+JSON.stringify(value)
+= convert JS value → JSON text (string form)
+
+
+It does NOT mean “make it the same JS value”.
+
+🔥 Interview One-Liner
+
+JSON.stringify returns a JSON-formatted string, not the original string.
+
+⚠️ Extra Tricky Cases
+JSON.stringify(undefined) // undefined
+JSON.stringify(null)      // "null"
+JSON.stringify(10)        // "10"
+JSON.stringify(true)      // "true"
+
+
+
+20+ Intermediate/Advanced String Tricks in JavaScript
 1. Reverse a string safely (with emojis/unicode)
 const str = "💖abc";
 console.log([...str].reverse().join('')); // "cba💖"

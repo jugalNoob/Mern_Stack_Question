@@ -1,33 +1,32 @@
-import React,{useState,useMemo} from 'react'
-
+import React, { useState } from 'react';
+import About from './About';
 
 function Home() {
-  const [name  , setName]=useState('')
+  const users = [
+    { name: 'Jugal', age: 45 },
+    { name: 'Rahul', age: 30 },
+    { name: 'Anita', age: 25 },
+  ];
 
-  function ExpensiveCaluation({num}){
-    const computerValue=useMemo(()=>{
-    let result=0
-    for(let i=0; i< num+100; i++){
-      
-      result +=i;
-    }
-    return result;
-    },[num])
-
-  }
+  // State to hold selected user
+  const [selectedUser, setSelectedUser] = useState(null);
 
   return (
     <div>
+      <h2>Click a user to see details:</h2>
+      {users.map((user, index) => (
+        <button key={index} onClick={() => setSelectedUser(user)}>
+          {user.name}
+        </button>
+      ))}
 
-<h1>computer Value: {computerValue}</h1>
+      {/* Pass the selected user to About component */}
+      {selectedUser && <About user={selectedUser} />}
     </div>
-  )
+  );
 }
 
-export default Home
-
-
-  // setState({provider , signer , address})   
+export default Home;
 
 
    

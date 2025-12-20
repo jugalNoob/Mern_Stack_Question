@@ -1,3 +1,38 @@
+
+5️⃣ What a REAL callback should look like ✅
+
+✔️ Callback must be called after async work completes
+
+
+function Test1(callback) {
+  console.log('download start')
+
+  setTimeout(() => {
+    console.log('downloading running')
+    callback()   // ✅ notify AFTER async work
+  }, 2000)
+}
+
+function Notification() {
+  console.log('download complete')
+}
+
+Test1(Notification)
+
+
+6️⃣ Correct output
+download start
+(downloading running)   ← after 2s
+download complete
+
+
+✔️ This is a true callback pattern
+
+
+
+00000000000000000000000000000000000000000000LLLLLLLLLLLLL------------------->>>>>>
+
+
 🔹 What is a callback (simple definition)
 
 A callback is a function passed as an argument

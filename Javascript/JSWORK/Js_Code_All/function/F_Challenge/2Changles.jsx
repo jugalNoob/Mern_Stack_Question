@@ -33,6 +33,7 @@ Always gives the same output for the same input
 Does not change anything outside itself (no side effects)
 
 ✅ Example — Pure Function
+
 function add(a, b) {
   return a + b;
 }

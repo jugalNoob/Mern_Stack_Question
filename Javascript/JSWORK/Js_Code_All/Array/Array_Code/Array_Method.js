@@ -1,3 +1,8 @@
+
+
+
+console.log('1'.repeat(100).length);
+
 const data = [10, 20, 30, 40];
 
 data.push(50);     // adds 50 at the end → [10, 20, 30, 40, 50]

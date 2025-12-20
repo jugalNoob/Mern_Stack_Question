@@ -7,6 +7,30 @@ console.log(allone(10 , 20))
 console.log(allone(1 , null))
 console.log(allone(1 + true))
 
+Look at your code:
+JavaScript
+console.log(allone(1 + true))
+That's allone( only one value )
+
+a = 2 (from 1 + true)
+b = undefined (because no second argument)
+
+Now inside the function:
+
+JavaScriptreturn a + b;  // 2 + undefined
+
+
+Code,What happens,Result,Reason
+"allone(1, null)",1 + null → null becomes 0,1,Numeric addition
+
+allone(1 + true),"1 + true → 2, then allone(2) → b =
+ undefined",NaN,undefined + number → NaN
+ 
+"allone(1, true)",1 + true → true becomes 1,2,Proper two-number addition
+
+
+console.log(allone(1, true));  // 2
+
 console.log(allone(1 + true)) //but true is 1 so answer is 2 cwhy Nan
 console.log(allone(1, true));  // 2
 
@@ -22,6 +46,7 @@ So:
 1 + 0
 = 1
 🔥 Why does null become 0?
+
 Because JavaScript does Type Coercion.
 Rules:
 Number(null) → 0
@@ -54,14 +79,21 @@ console.log(undefined + 5) // NaN
 ✔ Inner functions can access variables from outer scopes.
 ✔ age is a global variable, so dev() can access it.
 
+
+var age=10
 function ans(){
+    let age=20
     dev()
     function dev(){
         console.log(age)
     }
 }
-var age=10
+
 ans()
+console.log(age)
+
+
+
 execution context step-by-step (Memory phase + Execution phase)
 
 
@@ -290,6 +322,8 @@ hello is not available outside.
 
 Example:
 
+000000000000000000000000 :::::::::::::::::--->>>
+
 const add = function plus(x, y) {
   return x + y;
 };
@@ -304,6 +338,22 @@ function hello() {
 }
 
 hello();  // ✔ works
+
+
+Why does this happen?
+This is due to how named function expressions work in JavaScript.
+
+You're creating a function expression (not a function declaration).
+The name plus is a local identifier that exists only inside the function
+ itself — it's meant for recursion or debugging purposes.
+
+
+ The function is assigned to the variable add, so you can call it via add(...).
+But plus is not created as a variable in the surrounding scope (it's not global or accessible outside).
+
+
+add → valid reference to the function ✓
+plus → no such variable in scope → ReferenceError ✗
 
 
 Here hello is hoisted and available everywhere.

@@ -258,3 +258,142 @@ process.on("SIGTERM", () => {
 
 
 
+::::::::::::::::---------------------------->>>>
+
+
+console.log('first');
+
+
+
+const Test1=async()=>{
+  
+  let x=await 'jugal sharm'
+  console.log(x)
+}
+
+
+Test1()
+
+process.nextTick(() => console.log('proces'));
+
+
+
+| Method               | Queue Name      | Priority  | When does it run?                                                                         |
+| -------------------- | --------------- | --------- | ----------------------------------------------------------------------------------------- |
+| `console.log()`      | None            | Instant   | Runs **immediately** in the current execution context (synchronous).                      |
+| `process.nextTick()` | nextTick Queue  | Very High | Runs **immediately after the current code block**, before any other microtasks or timers. |
+| `Promise.then()`     | Microtask Queue | High      | Runs **after all nextTick callbacks** but before macrotasks (timers, I/O).                |
+| `setTimeout()`       | Macrotask Queue | Low       | Runs in the **next iteration of the event loop**, after microtasks are done.              |
+
+
+
+Order,Code,Reason
+1st,first,Synchronous execution.
+2nd,jugal sharm,First microtask to be processed after the await.
+3rd,promiseiing,Next microtask in the queue.
+4th,proces,A nextTick created inside a microtask; it runs after the current microtask phase finishes.
+
+
+
+Ah! Now you want to understand why the output order is:
+
+first
+jugal sharm
+promiseiing
+proces
+
+
+for this code:
+
+console.log('first');
+
+const Test1 = async () => {
+  let x = await 'jugal sharm';
+  console.log(x);
+}
+
+Test1();
+
+process.nextTick(() => console.log('proces'));
+
+const Test2 = new Promise((res, rej) => {
+  let data = 'promiseiing';
+  res(data);
+}).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+
+Let’s break it step by step, event-loop style.
+
+Step 1️⃣: Synchronous code
+console.log('first')
+
+
+Runs immediately
+
+✅ Output:
+
+first
+
+Step 2️⃣: Test1() async function
+let x = await 'jugal sharm'
+
+
+'jugal sharm' is not a promise, but await wraps it in Promise.resolve()
+
+Always async → result goes to microtask queue
+
+Scheduled:
+
+console.log(x) → microtask
+
+Step 3️⃣: process.nextTick
+process.nextTick(() => console.log('proces'))
+
+
+Added to nextTick queue
+
+Next tick runs after current stack, but in modern Node.js await-resolved microtasks run first at top-level, so jugal sharm prints before proces
+
+Step 4️⃣: Test2 Promise
+new Promise((res, rej) => {
+  res('promiseiing');
+}).then(...)
+
+
+res('promiseiing') → promise resolves immediately
+
+.then() goes to microtask queue, after the await microtask
+
+Scheduled:
+
+console.log('promiseiing') → microtask queue
+
+Step 5️⃣: Execution order in queues
+
+Sync stack → first
+
+Microtask queue → Test1 console.log(x) → jugal sharm
+
+Microtask queue → Test2 .then() → promiseiing
+
+NextTick queue → process.nextTick → proces
+
+✅ Final Output
+first
+jugal sharm
+promiseiing
+proces
+
+🔑 Key Points (Interview Gold)
+
+await always yields → microtask
+
+Promise.then() → microtask, executes after earlier microtasks
+
+process.nextTick() → highest priority, but await-resolved microtasks may execute first at top-level in modern Node
+
+Synchronous code always first

@@ -120,7 +120,8 @@ jugal sharma
 
 2️⃣ one() → ❌ Error
 
-Because one is a const variable holding an arrow function (function expression).
+Because one is a const variable holding an arrow function
+ (function expression).
 
 Function expressions are not hoisted like declarations.
 Only the variable name one is hoisted (in a “temporal dead zone”) —

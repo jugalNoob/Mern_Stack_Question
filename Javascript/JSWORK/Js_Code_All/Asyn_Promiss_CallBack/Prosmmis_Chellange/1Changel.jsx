@@ -1,3 +1,26 @@
+2:::::::::::::::: --------------- >>>
+Then and Catch ------------->>
+
+
+The Breakdown
+The Promise (Sync): The code inside the new Promise((res, rej) => { ... }) 
+constructor runs immediately (synchronously) as soon as it is created.
+
+.then() (Async): This is a "Microtask." It is scheduled to run only after the 
+current script finishes.
+
+.catch() (Async): This works exactly like .then(). It is also a Microtask. 
+It waits in the same queue.
+
+Part,Behavior,Timing
+new Promise(...),Synchronous,Runs immediately.
+.then(),Asynchronous,Runs after main script (Success).
+.catch(),Asynchronous,Runs after main script (Failure).
+.finally(),Asynchronous,Runs after main script (Always).
+
+
+
+0000000000000000000000000000000000000000000000 -------------------------->>>
 2️⃣ Categorize each line (IMPORTANT)
 🔹 Synchronous (Call Stack)
 console.log('first')
@@ -101,7 +124,8 @@ setTimeout → Timeout
 
 8️⃣ Ultra-short interview answer 🎯
 
-Promises use the microtask queue, which has higher priority than the macrotask queue used by setTimeout, so promise callbacks execute before timers.
+Promises use the microtask queue, which has higher priority than the
+ macrotask queue used by setTimeout, so promise callbacks execute before timers.
 
 🧠 Memory trick
 SYNC → MICRO → MACRO

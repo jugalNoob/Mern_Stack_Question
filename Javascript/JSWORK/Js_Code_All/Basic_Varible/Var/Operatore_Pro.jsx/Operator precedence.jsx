@@ -1,6 +1,8 @@
-Operator precedence decides which operator is executed first when multiple operators appear in one expression.
+Operator precedence decides which operator is 
+executed first when multiple operators appear in one expression.
 
-If precedence is equal → associativity decides (left → right or right → left).
+If precedence is equal → associativity 
+decides (left → right or right → left).
 
 
 ()   // always highest

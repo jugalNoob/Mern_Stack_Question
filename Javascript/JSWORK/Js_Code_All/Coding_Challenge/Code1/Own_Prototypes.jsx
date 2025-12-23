@@ -1,3 +1,34 @@
+Date.prototype.CheckYearklast = () => {
+  return this.getFullYear() - 1;
+};
+
+let date = new Date();
+console.log(date.CheckYearklast());
+🔥 One-line Interview Answer
+
+Arrow functions do not have their own this, so they 
+#should not be used as prototype methods.
+
+
+❌ Error / Wrong behavior
+
+this.getFullYear is not a function
+
+🧠 Root Cause (IMPORTANT)
+
+Arrow functions do NOT have their own this
+
+Arrow function takes this from lexical scope
+
+Here, this is NOT the Date instance
+
+In browser → this = window
+
+In Node.js → this = {} (module scope)
+
+So:
+
+
 :::::::: Very Important in Jvacript ::::::::::::::::::::::::::::::::::::
 
 ///Create a custom create  a ProTotype |||||||||||||||||||||||||||||||||||

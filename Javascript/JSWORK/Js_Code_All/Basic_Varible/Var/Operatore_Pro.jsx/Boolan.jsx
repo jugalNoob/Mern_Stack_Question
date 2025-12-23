@@ -1,4 +1,5 @@
-In JavaScript, Boolean(value) converts any value to a boolean using truthy / falsy rules.
+In JavaScript, Boolean(value) converts 
+any value to a boolean using truthy / falsy rules.
 
 Let’s first look at your code 👇
 

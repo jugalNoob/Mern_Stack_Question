@@ -1,16 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-function About({ user }) {
+function About() {
   return (
-    <div>
-      <h2>User Details</h2>
-      <p>Name: {user.name}</p>
-      <p>Age: {user.age}</p>
-    </div>
-  );
+    <div>About</div>
+  )
 }
 
-export default About;
+export default About
+
 
 // {users.map((user, index) => (
 //   <UserCard key={index} {...user} />

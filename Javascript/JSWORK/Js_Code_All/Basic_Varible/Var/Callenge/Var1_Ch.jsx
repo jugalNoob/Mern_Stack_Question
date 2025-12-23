@@ -100,7 +100,9 @@ false → 0
 This uses the == coercion rules.
 
 Simple Rule (MEMORIZE)
+
 If one side is boolean, JavaScript converts it to a number.
+
 console.log(0 === false);
 ✅ Output
 false

@@ -1,5 +1,18 @@
 
 
+
+let obj={
+    name:'jugal harma',
+    roll:46
+}
+delete obj.name
+console.log(obj)
+let data1=['jugal' , 'karan sharma']
+
+delete data1[0]
+data1[0]='jugal'
+console.log(data1)
+
 🧠 WHY this happens (Simple explanation)
 🔑 Rule to Remember
 
@@ -122,7 +135,8 @@ Now evaluate:
 
 🔑 Key Rule (IMPORTANT)
 
-The comma operator evaluates all expressions but returns only the last one.
+The comma operator evaluates all expressions but returns 
+only the last one.
 
 (1, 2, 3) // 3
 

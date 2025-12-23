@@ -169,6 +169,7 @@ Promise {10}
 4️⃣ What happens if you forget await in async function?
 
 The async function returns a pending Promise,
+
  not the resolved value.
 
 5️⃣ Does await block the thread?

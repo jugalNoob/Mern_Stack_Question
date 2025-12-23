@@ -21,3 +21,6 @@ function Home() {
 
 export default Home
 
+
+// Parentheses () auto-return JSX
+

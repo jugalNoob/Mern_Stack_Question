@@ -1,0 +1,10 @@
+MongoDB offers flexibility with its document model, but transactions come into play for ensuring data consistency across multiple updates. This section clarifies when to leverage MongoDB's atomic writes on single documents and dives into multi-document transactions for complex operations. We'll guide you on optimizing your data model for both efficiency and data integrity.
+
+Transactions in MongoDB
+ACID Transactions in MongoDB
+Transactions in Mongoose
+Data Modeling
+MongoDB - Relationships
+Embedding Data in Documents
+Specify JSON Schema Validation
+Scaling in MongoDB

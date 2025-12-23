@@ -1,57 +1,324 @@
-✅ Correct rule (MEMORIZE THIS)
+1️⃣ What is the meaning of try...catch?
 
-.then(), .catch(), and .finally() ALL run as microtasks.
+👉 Purpose: Handle runtime errors safely.
 
-🔑 Summary of All Promise Types
+try {
+  JSON.parse("{ bad json }")
+} catch (err) {
+  console.log("Error handled")
+}
 
-new Promise() → create promise
+Key points
 
-.then(), .catch(), .finally()
+Prevents app crash
 
-Promise.resolve() / Promise.reject()
+Works with sync code
 
-Promise.all() → all must succeed
+With async/await, it also catches Promise rejections
 
-Promise.allSettled() → wait for all, succeed or fail
+2️⃣ What is new Promise()?
 
-Promise.race() → first to settle wins
+👉 A Promise is an object that represents a future result.
 
-Promise.any() → first success wins
+const p = new Promise((resolve, reject) => {
+  resolve("success")
+})
 
-async/await → modern syntax
+Promise states
 
-Nested promises → possible, but chaining better
+pending
+
+fulfilled
+
+rejected
+
+3️⃣ Why await does not work outside async?
+
+Because await needs a Promise context.
+
+❌ Invalid:
+
+await fetchData()
+
+
+✅ Valid:
+
+async function test() {
+  await fetchData()
+}
+
+
+📌 Exception:
+
+Top-level await works in ES modules
+
+4️⃣ Difference between new Promise() and async function
+
+
+| Feature        | `new Promise()`     | `async function`              |
+| -------------- | ------------------- | ----------------------------- |
+| Syntax         | Manual              | Automatic                     |
+| Error handling | `reject()`          | `throw`                       |
+| Return         | Must call `resolve` | Returns Promise automatically |
+| Use case       | Low-level async     | High-level async              |
 
 
 
-      00::::::::: --------------->>>>>>> Promise
-      
-      const nameOne=new Promise((res,rej)=>{
-        setTimeout(()=>{
-      let obj={name:'jugal sharma' , roll:20}
-rej(obj)
-        },50)
-       })
+// async version (preferred)
+async function getData() {
+  return "data"
+}
+5️⃣ Meaning of .then() and .catch()
+👉 Handle Promise result and errors
 
-              const nameTwo=new Promise((res,rej)=>{
-                       setTimeout(()=>{
-      let obj={name:'karan sharma' , roll:20}
-res(obj)
-        },100)
-  
-       })
+js
+Copy code
+fetchData()
+  .then(data => console.log(data))
+  .catch(err => console.log(err))
+.then() → success
 
-       Promise.allSettled([nameOne, nameTwo]).then((data)=>{
-        console.log(data)
-       }).catch((err)=>{
-        console.log(err)
-       })
-       🔥 Difference Between: Promise.all, Promise.allSettled, Promise.any, Promise.race
+.catch() → failure
 
-| Method                 | When it Resolves                                        | When it Rejects                                   | Use Case                                          | Example Result                                |
-| ---------------------- | ------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| **Promise.all**        | When **ALL** promises succeed                           | If **ANY** promise fails                          | When you need **all results**                     | `["a", "b", "c"]`                             |
-| **Promise.allSettled** | **Always resolves** (never rejects)                     | ❌ Never rejects                                   | When you want **result of all**, even failed ones | `[{status:"fulfilled"}, {status:"rejected"}]` |
-| **Promise.any**        | When the **FIRST successful** promise resolves          | If **ALL** promises fail                          | When **only one success** is enough               | `"result from fastest success"`               |
-| **Promise.race**       | When the **FIRST promise (success OR failure)** settles | Same: rejects only if the first settled is reject | When speed matters — take **first response**      | `"winner"` OR error                           |
+6️⃣ Can I use Promise inside async function?
+✅ YES
 
+js
+Copy code
+async function test() {
+  const p = Promise.resolve(10)
+  const result = await p
+  console.log(result)
+}
+📌 async/await is just syntax sugar over Promises.
+
+7️⃣ Why Promise.resolve() without .catch() can fail silently?
+js
+Copy code
+Promise.reject("error")
+❌ If no .catch() → Unhandled Promise Rejection
+
+In Node.js:
+
+Can crash app (depending on version)
+
+✅ Always handle:
+
+js
+Copy code
+Promise.reject("err").catch(console.error)
+8️⃣ Meaning of resolve and reject
+js
+Copy code
+new Promise((resolve, reject) => {
+  resolve("success") // fulfilled
+  reject("error")   // rejected
+})
+
+| Function  | Meaning |
+| --------- | ------- |
+| `resolve` | Success |
+| `reject`  | Failure |
+
+
+9️⃣ Meaning of finally()
+
+👉 Runs always (success or error)
+
+fetchData()
+  .then(console.log)
+  .catch(console.error)
+  .finally(() => console.log("cleanup"))
+
+
+📌 Used for:
+
+closing DB
+
+stopping loaders
+
+cleanup
+
+🔟 Difference between Promise Combinators
+✅ Promise.all
+
+All must succeed
+
+Fails fast
+
+Promise.all([p1, p2])
+
+✅ Promise.any
+
+First success wins
+
+Ignores failures
+
+Promise.any([p1, p2])
+
+✅ Promise.race
+
+First settled (success or fail)
+
+Promise.race([p1, p2])
+
+✅ Promise.allSettled
+
+Waits for all
+
+Never fails
+
+Promise.allSettled([p1, p2])
+
+🔥 Interview Table
+
+| Method     | Fail Fast | Wait All | First Win |
+| ---------- | --------- | -------- | --------- |
+| all        | ✅         | ❌        | ❌         |
+| any        | ❌         | ❌        | ✅         |
+| race       | ❌         | ❌        | ✅         |
+| allSettled | ❌         | ✅        | ❌         |
+
+
+
+1️⃣1️⃣ Meaning of Promise chaining (then → catch)
+
+👉 Pass result step-by-step
+
+fetchUser()
+  .then(user => fetchPosts(user.id))
+  .then(posts => console.log(posts))
+  .catch(console.error)
+
+
+📌 One .catch() handles all errors above.
+
+➕ EXTRA IMPORTANT INTERVIEW QUESTIONS (Added)
+🔹 Promise vs Callback?
+
+Callback → hell
+
+Promise → clean & readable
+
+🔹 Async/Await vs Promise?
+
+Same power
+
+async/await = cleaner syntax
+
+🔹 Does try...catch catch .then() errors?
+
+❌ NO
+
+try {
+  promise.then(...)
+} catch {}
+
+
+✅ Use:
+
+await promise
+
+🎯 FINAL INTERVIEW ONE-LINERS
+
+“Async functions always return a Promise.”
+
+“await pauses execution, not the thread.”
+
+“try...catch with async catches rejected Promises.”
+
+“Promise chaining avoids callback hell.”
+
+If you want next:
+
+Event loop + Promise microtasks
+
+Async interview traps
+
+Node.js Promise best practices
+
+
+
+🧠 “Zoology” (Nature) of async / await
+
+await is async in implementation but synchronous in appearance
+
+1️⃣ Why await looks synchronous
+async function test() {
+  console.log(1)
+  await Promise.resolve()
+  console.log(2)
+}
+test()
+console.log(3)
+
+Output
+1
+3
+2
+
+Explanation
+
+await pauses only the async function
+
+It does NOT block the call stack
+
+Remaining code runs later via microtask queue
+
+👉 Looks sync inside function, but async outside.
+
+
+
+
+4️⃣ Why await works like sync inside loop (IMPORTANT)
+async function test() {
+  for (let i = 1; i <= 3; i++) {
+    await Promise.resolve(i)
+    console.log(i)
+  }
+}
+test()
+
+
+Output:
+
+1
+2
+3
+
+
+❓ Why sequential?
+
+Each await waits before next iteration
+
+Execution is linear inside function
+
+
+// const cache = new Map()
+
+// setInterval(() => {
+//   const key = 'array' // stable key
+
+//   if (cache.has(key)) {
+//     console.log('Cache hit')
+//     console.log(cache.get(data))
+//     return cache.get(key)
+//   }
+
+//   console.log('Cache miss')
+
+//   const data = [10, 20, 30, 40, 50]
+//   cache.set(key, data)
+
+// }, 1000)
+
+// console.log('jugal')
+
+
+// 🔑 Golden Rule (THIS answers everything)
+
+// Map keys must match EXACTLY
+// – Primitive → value comparison
+// – Object/Array → reference comparison
+
+// There is NO conversion between them.

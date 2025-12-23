@@ -12,23 +12,37 @@ echoDuplex.end();
 
 
 ::::::::::::::: ------>>>Full Code ------------------->>
+import { Duplex, pipeline } from 'stream/promises'; // Use promise-based pipeline
+import { stdout } from 'process';
 
-import { Duplex } from "stream";
-
-const duplexStream = new Duplex({
+const myDuplex = new Duplex({
+  // Improvement: Handle string/buffer logic
+  decodeStrings: false, 
+  
   write(chunk, encoding, callback) {
-    console.log("Writing:", chunk.toString());
+    console.log('Writing to stream:', chunk.toString());
     callback();
   },
+
   read(size) {
-    this.push("Hello from Duplex Stream\n");
-    this.push(null); // end readable side
+    // Improvement: Only push when requested
+    // Pushing null tells the pipeline we are finished
+    this.push('hi i am read data\n');
+    this.push(null); 
   }
 });
 
-duplexStream.write("Client writes to duplex");
-duplexStream.on("data", (data) => console.log("Readable:", data.toString()));
+// 1. Write data to the stream
+myDuplex.write('hi i am write');
+myDuplex.end();
 
+// 2. Use the promise-based pipeline to consume the read side
+try {
+  await pipeline(myDuplex, stdout);
+  console.log('\nPipeline succeeded');
+} catch (err) {
+  console.error('Pipeline failed', err);
+}
 
 
 

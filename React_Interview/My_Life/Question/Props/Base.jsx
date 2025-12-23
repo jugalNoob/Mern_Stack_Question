@@ -27,6 +27,42 @@ Answering these shows advanced React design thinking
 00000000000000 --------------------->>>Base Important  --------------------->>
 
 
+00000000000000 Array Important ::::::::::::::::::::::::::::::::
+import React from 'react'
+import About from './About'
+
+function Home() {
+
+  let arr=['jugal' , 'karans' , 'nikhile']
+
+  return (
+    <div>
+<h1></h1>
+<About  arr={arr}>
+
+</About>
+
+    </div>
+  )
+}
+
+export default Home
+
+
+import React from "react";
+
+function About({ arr}) {
+  console.log(arr)
+  return (
+    <div>
+      {arr.map((name, i) => (
+        <h1 key={i}>{name}</h1>
+      ))}
+    </div>
+  );
+}
+export default About
+
 1 :::::::::Base Props ---------------->>
 
 import React from 'react'

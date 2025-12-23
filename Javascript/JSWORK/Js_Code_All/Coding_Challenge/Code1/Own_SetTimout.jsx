@@ -1,22 +1,30 @@
 /// Wait Time Out  --------------------->
-function Set() {
-   const delay = Date.now() + 5000; // 3-second delay
-   // Busy-wait loop until the delay passes
-   while (Date.now() < delay) {
-      // Just waiting
-      console.log('waiting room')
-   }
-   console.log("jugal sharma");
+
+// 🔥 Why setTimeout(fn, 0) is NOT immediate
+✅ Best & Accepted: setTimeout Polyfill using setInterval
+✔ Own Pure setTimeout Implementation
+function mySetTimeout(callback, delay) {
+  const startTime = Date.now();
+
+  const timer = setInterval(() => {
+    if (Date.now() - startTime >= delay) {
+      clearInterval(timer);
+      callback();
+    }
+  }, 1);
 }
 
-Set();
+✅ Usage
+mySetTimeout(() => {
+  console.log("jugal sharma");
+}, 5000);
 
+🧠 How this works (step-by-step)
 
-function Set(){
+1️⃣ Store start time
+2️⃣ Keep checking current time
+3️⃣ Once delay is reached
+4️⃣ Stop interval
+5️⃣ Execute callback
 
-   setTimeout(()=>{
-      console.log("jugal sharma")
-   } , 3000)
-}
-
-Set()
+This mimics real setTimeout behavior

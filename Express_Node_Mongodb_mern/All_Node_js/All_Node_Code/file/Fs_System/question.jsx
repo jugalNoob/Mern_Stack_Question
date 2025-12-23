@@ -73,7 +73,8 @@ console.log('This runs after file read')
 
 Answer:
 
-No. fs operations are executed in libuv thread pool, not truly async at OS level.
+No. fs operations are executed in libuv thread pool,
+ not truly async at OS level.
 
 Flow
 fs.readFile()
@@ -84,7 +85,9 @@ Event Loop callback
 
 🎯 Final Interview Answer (Perfect)
 
-fs provides asynchronous APIs using callbacks and promises, and also synchronous APIs. In production, async fs methods are preferred to avoid blocking the event loop.
+fs provides asynchronous APIs using callbacks and promises, 
+and also synchronous APIs. In production, async fs methods are
+ preferred to avoid blocking the event loop.
 
 If you want next 🔥
 ➡️ fs + event loop deep dive
@@ -144,9 +147,11 @@ delete files & directories.
 
 fs.readFile('a.txt', cb)
 fs.readFileSync('a.txt')
+
 3️⃣ What is error-first callback?
 Answer:
-Node.js callbacks follow (err, data) pattern so errors can be handled immediately in async operations.
+Node.js callbacks follow (err, data) pattern so errors 
+can be handled immediately in async operations.
 
 
 4️⃣ Difference between writeFile and appendFile?

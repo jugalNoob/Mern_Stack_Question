@@ -107,4 +107,5 @@ starve I/O.
 5️⃣ Interview Tip
 
 Always remember: process.nextTick() is outside the event loop, part of a 
-microtask queue that runs immediately after the current operation, whereas setImmediate() is part of the check phase in the event loop.
+microtask queue that runs immediately after the current operation, 
+whereas setImmediate() is part of the check phase in the event loop.

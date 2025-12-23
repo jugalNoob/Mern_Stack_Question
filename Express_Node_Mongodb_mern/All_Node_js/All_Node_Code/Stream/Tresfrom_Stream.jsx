@@ -1,87 +1,88 @@
-Here is the cleanest, interview-level, 
-production-style example of:
+///////////// ----->>Reda stream Trnsfrom ------------------>>
 
-🔥 pipeline → transform streams
-
-We will cover:
-
-Basic transform stream
-
-Pipeline with readable → transform → writable
-
-Async transform stream (advanced)
-
-Multiple transforms inside pipeline
-
-1️⃣ Basic Transform Stream
-
-Transform stream = modifies each chunk.
-
-Example: convert text to uppercase.
-
-import { Transform } from "node:stream";
-
-const upperCaseTransform = new Transform({
-  decodeStrings: false, // since we use utf-8 strings
-  transform(chunk, encoding, callback) {
-    const upper = chunk.toUpperCase();
-    callback(null, upper);
+const reverseTransform = new Transform({
+  decodeStrings: false,
+  transform(chunk, encoding, cb) {
+    cb(null, chunk.split("").reverse().join(""));
   }
 });
-
-2️⃣ 🔥 Pipeline with Transform Stream
-import fs from "node:fs";
-import { pipeline } from "node:stream/promises";
-import { Transform } from "node:stream";
 
 const upperCaseTransform = new Transform({
   decodeStrings: false,
-  transform(chunk, encoding, callback) {
-    callback(null, chunk.toUpperCase());
+  transform(chunk, encoding, cb) {
+    cb(null, chunk.toUpperCase());
   }
 });
+
+
+Transform: a special kind of Duplex stream (read + write) that modifies data while passing it through.
+
+decodeStrings: false: ensures that the input chunk is already a string (not a Buffer), so we can call .toUpperCase() directly.
+
+transform(chunk, encoding, cb):
+
+Runs for every chunk of data written to the stream.
+
+chunk = the incoming data.
+
+cb(null, transformedChunk) = pushes modified data to the readable side of the stream.
+
+Here, chunk.toUpperCase() converts all text to uppercase.
+
+✅ This is the core “modify on-the-fly” part.
 
 await pipeline(
   fs.createReadStream("./file/jugal.txt", { encoding: "utf-8" }),
   upperCaseTransform,
-  fs.createWriteStream("./file/output.txt", { encoding: "utf-8" })
+   process.stdout
 );
 
-console.log("Transform + Pipeline completed!");
+fs.createReadStream creates a readable stream from the file.
+
+{ encoding: "utf-8" } ensures that the data is read as strings, not Buffers.
+
+Data is read in chunks (not the whole file at once) → memory-efficient.
 
 
-✔ Reads file
-✔ Converts to uppercase
-✔ Writes transformed output
+pipeline is a safe way to pipe multiple streams together.
 
-3️⃣ 🧠 Async Transform Stream (Super Powerful)
+Here we are piping:
 
-Useful when you must:
+File read stream → 2. Transform stream → 3. Output to console (process.stdout)
 
-call DB
+await pipeline(...)
 
-call API
+Makes it promise-based, so you can use async/await
 
-await operations
+Automatically handles errors and closes streams if something goes wrong.
 
-CPU heavy operations
 
-const delayTransform = new Transform({
-  decodeStrings: false,
-  async transform(chunk, encoding, callback) {
-    await new Promise(res => setTimeout(res, 500)); // simulate async task
-    callback(null, `Processed: ${chunk}`);
+///////// --->>Write Stream Terfrom -------------->>
+
+const { Transform } = require('stream');
+
+// Create a Transform stream
+const upperCaseTransform = new Transform({
+  transform(chunk, encoding, callback) {
+    // Convert chunk to uppercase
+    const upperChunk = chunk.toString().toUpperCase();
+    callback(null, upperChunk); // pass transformed data
   }
 });
 
+// Example: write to stream
+upperCaseTransform.on('data', (chunk) => {
+  console.log('Transformed:', chunk.toString());
+});
 
-Pipeline:
+// Write some data
+upperCaseTransform.write('hello ');
+upperCaseTransform.write('world!');
+upperCaseTransform.end();
 
-await pipeline(
-  fs.createReadStream("./file/jugal.txt", { encoding: "utf-8" }),
-  delayTransform,
-  process.stdout
-);
+
+
+
 
 4️⃣ 🔥 Multiple Transform Streams in Pipeline
 Example:

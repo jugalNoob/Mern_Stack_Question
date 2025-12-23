@@ -15,6 +15,61 @@ Name()
 
 
 
+:::::::::::Heap Mmeory Store --------------------->>
+
+🔹 Where is the function stored?
+✅ Function object → HEAP
+✅ Function name (Name) → STACK / Variable Environment
+Memory picture:
+STACK (Global Execution Context)
+--------------------------------
+Name  ──────►  0xF123  (reference)
+
+HEAP
+--------------------------------
+0xF123 → Function Object {
+            [[Code]]: console.log(10)
+            [[Scope]]: Global
+         }
+
+
+
+
+Function Expression
+const B = function () {}
+
+
+Memory:
+
+STACK: B → 0xF456
+HEAP : 0xF456 → Function
+
+
+🔹 Is function stored in stack?
+
+❌ NO
+
+Stack only stores:
+
+Function execution contexts
+
+Local variables (primitives)
+
+References
+
+Heap stores:
+
+Objects
+
+Arrays
+
+Functions
+
+Closures
+
+
+
+
 Great 👍
 What you shared is an Excalidraw diagram of JavaScript Execution (Execution Context + Hoisting).
 I’ll explain it cleanly, step-by-step, exactly how an interviewer expects.

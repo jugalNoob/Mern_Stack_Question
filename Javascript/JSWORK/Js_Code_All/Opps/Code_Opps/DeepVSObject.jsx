@@ -1,31 +1,30 @@
-    q what memory 
 
-    Q 
-    
+🔥 Interview Tip:
 
+“Shallow copy copies only top-level properties, deep copy
+ copies everything recursively.”
 
-    Q only object chaing inob ject not nesty obnject in sallow cpoy 
+Use JSON.parse(JSON.stringify(obj)) for plain objects.
 
-    Q but deep copy chec besty arrayt ?
-
-1. Shallow Copy
-
-Creates a new object, but nested objects still share references.
-
-Only the first-level properties are copied.
+Use structuredClone for complex objects or modern codebases.
 
 
-// let obj={
-//   name:'jugal'
-// }
 
 
-// let objs=obj
+/////////////// ------------------This is deep copy Explain un change 
+let ob1={
+ name:'jugal',
+ roll:{
+    user1:69
+ }
+}
 
-// objs.name='karan sharma'
+let obj=ob1
 
-// console.log(obj)
-// console.log(objs)
+ob1.roll.user1 = 45
+
+console.log(ob1)
+console.log(ob1)
 
 
 
@@ -69,6 +68,22 @@ Array shallow copy: arr.slice() or [...arr]
 Creates a completely independent copy, including nested objects/arrays.
 
 Changes in the copy do not affect the original.
+
+
+
+let ob1={
+ name:'jugal',
+ roll:{
+    user1:69
+ }
+}
+
+let obj=ob1
+
+ob1.roll.user1 = 45
+
+console.log(ob1)
+console.log(ob1)
 
 Example
 let obj = { 

@@ -17,9 +17,11 @@ Output
 
 🧠 CORE IDEA (One line)
 
-All callbacks close over the SAME i because var creates ONE shared lexical environment.
+All callbacks close over the SAME i because var creates 
+ONE shared lexical environment.
 
 🧱 IMPROVED ASCII MEMORY DESIGN
+
 1️⃣ Global Execution Context (GEC)
 STACK (Call Stack)
 ┌────────────────────────────┐

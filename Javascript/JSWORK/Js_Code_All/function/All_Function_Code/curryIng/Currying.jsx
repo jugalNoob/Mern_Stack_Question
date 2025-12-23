@@ -1,3 +1,17 @@
+2. Currying
+Currying is a technique where a function with multiple arguments is 
+transformed into a series of functions that each take only one 
+argument.
+
+
+1. HOF (Higher-Order Function)
+A Higher-Order Function is a function that treated like a "boss" or a
+ "manager." It does at least one of two things:
+
+Takes another function as an input (argument).
+
+Returns a new function as its output.
+
 
 function Currying(a ,e) {
      let x = a;     // assigned value

@@ -98,9 +98,11 @@ That's the classic "var hoisting" gotcha in JavaScript! 😊
 Let me know if you want to see more hoisting examples!
 
 
-0000::::::::::::::------------>>>
+0000::::::::::::::------------>>> ----------------------------->>
+
+
 function nameIm(){
-    return 'jugal'
+    return ''
 }
 let val=nameIm()
 console.log(typeof(val))

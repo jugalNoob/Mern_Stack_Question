@@ -194,3 +194,40 @@ Example:
 
 const b = Buffer.allocUnsafe(10);
 console.log(b); // random memory data
+
+
+
+
+1. What does the output mean?
+If you run that code, you will see: <Buffer 00 00 00 00 00 00 00 00 00 00>
+
+Fixed Size: You have created a container that can hold exactly 10 bytes. You
+ cannot make it 11 bytes later.
+
+Safe/Clean: The .alloc() method is "safe" because it initializes the memory
+ with zeros. It ensures that no "old" or "dirty" data from previous
+  processes is left in those memory slots.
+
+
+const buf = Buffer.alloc(10); //fixed size Bytes 
+// Write "hi" into the buffer
+buf.write('hi');
+
+console.log(buf); 
+// Output: <Buffer 68 69 00 00 00 00 00 00 00 00>
+// '68' is h, '69' is i. The rest remains 00.
+
+
+
+
+allocUnsafe(10): You grab a used notebook. It’s faster because you didn't go to the store, but the pages might already have someone else's old scribbles on them.
+
+2. What happens in your code?
+Buffer.allocUnsafe(10): Node.js gives you 10 bytes of memory. It doesn't "clean" them, so they contain whatever was there before (random junk).
+
+buf.write('hi'): You write "hi" on the first two pages.
+
+console.log(buf): You see your "hi" (68 69), but the other 8 pages still have the old "junk" scribbles.
+
+3. Why use it?
+It is faster. Cleaning memory (filling it with zeros) takes a tiny bit of time. If you are doing this millions of times per second, allocUnsafe saves computer power.

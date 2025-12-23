@@ -1,4 +1,124 @@
-Key Points
+
+
+✅ Definition
+
+A Duplex stream is both readable and writable, but it does not modify data by default.
+
+🔹 Key points
+
+Can read and write independently
+
+No automatic data transformation
+
+Example: TCP socket, net.Socket
+
+
+
+2️⃣ Transform Stream
+✅ Definition
+
+A Transform stream is a special type of Duplex that modifies data while reading/writing.
+
+🔹 Key points
+
+Read + write + modify
+
+Used for on-the-fly transformation (uppercase, compression, encryption, CSV→JSON)
+
+Built-in _transform() method
+
+🔹 Example
+
+
+
+3️⃣ Key Differences
+
+
+| Feature             | Duplex Stream             | Transform Stream                       |
+| ------------------- | ------------------------- | -------------------------------------- |
+| Type                | Readable + Writable       | Duplex + modifies data                 |
+| Purpose             | Read/write independently  | Read/write **with transformation**     |
+| Method to implement | `_read()` + `_write()`    | `_transform()` (write → modify → push) |
+| Examples            | TCP socket, custom duplex | Uppercase stream, gzip, encryption     |
+
+
+4️⃣ Interview-ready sentence
+
+Duplex streams can read and write independently, while Transform 
+treams are a special 
+Duplex that modifies data on-the-fly.
+
+00000000000000000000000000000000000000000000 ========================???
+
+const { stdout } = require('process');
+upperCase.write('hello transform');
+upperCase.end();
+
+pipeline(upperCase, stdout, err => {
+  if(err) console.error(err);
+});
+
+
+Output: HELLO TRANSFORM
+
+Key point: Transform streams are Duplex streams with built-in transformation. You don’t need separate logic for read/write correlation.
+
+5. Differences: Duplex vs Transform
+
+| Feature                  | Duplex                      | Transform                                   |
+| ------------------------ | --------------------------- | ------------------------------------------- |
+| Readable                 | ✅                           | ✅                                           |
+| Writable                 | ✅                           | ✅                                           |
+| Automatic transformation | ❌                           | ✅                                           |
+| Use case                 | Bidirectional protocols     | Data transformation pipelines               |
+| Implementation           | Custom `read()` & `write()` | Only `transform(chunk, encoding, callback)` |
+#
+
+
+Summary:
+
+All Transform streams are Duplex, but not all Duplex streams are Transform.
+
+Use Duplex for custom read/write logic where input ≠ output.
+
+Use Transform when output is derived from input automatically.
+
+6. Common Advanced Use Cases
+
+Duplex
+
+WebSocket server: send & receive messages
+
+TCP client/server: read request → send response
+
+Custom in-memory protocols
+
+Transform
+
+gzip compression / decompression
+
+AES encryption / decryption
+
+Streaming JSON parser
+
+CSV → JSON converter
+
+Readable/Writable
+
+File read/write pipelines
+
+HTTP request/response streaming
+
+Logging
+
+7. Pipeline Example with Transform
+const fs = require('fs');
+const { Transform, pipeline } = require('stream/promises');
+
+const upperCase = new Transform({
+  transform(chunk, encoding, callback) {
+    callback(null, chunk.toString().toUpperCase());
+  }Key Points
 
 Duplex = Readable + Writable in one.
 
@@ -105,77 +225,7 @@ const upperCase = new Transform({
   transform(chunk, encoding, callback) {
     callback(null, chunk.toString().toUpperCase());
   }
-});
 
-const { stdout } = require('process');
-upperCase.write('hello transform');
-upperCase.end();
-
-pipeline(upperCase, stdout, err => {
-  if(err) console.error(err);
-});
-
-
-Output: HELLO TRANSFORM
-
-Key point: Transform streams are Duplex streams with built-in transformation. You don’t need separate logic for read/write correlation.
-
-5. Differences: Duplex vs Transform
-
-| Feature                  | Duplex                      | Transform                                   |
-| ------------------------ | --------------------------- | ------------------------------------------- |
-| Readable                 | ✅                           | ✅                                           |
-| Writable                 | ✅                           | ✅                                           |
-| Automatic transformation | ❌                           | ✅                                           |
-| Use case                 | Bidirectional protocols     | Data transformation pipelines               |
-| Implementation           | Custom `read()` & `write()` | Only `transform(chunk, encoding, callback)` |
-#
-
-
-Summary:
-
-All Transform streams are Duplex, but not all Duplex streams are Transform.
-
-Use Duplex for custom read/write logic where input ≠ output.
-
-Use Transform when output is derived from input automatically.
-
-6. Common Advanced Use Cases
-
-Duplex
-
-WebSocket server: send & receive messages
-
-TCP client/server: read request → send response
-
-Custom in-memory protocols
-
-Transform
-
-gzip compression / decompression
-
-AES encryption / decryption
-
-Streaming JSON parser
-
-CSV → JSON converter
-
-Readable/Writable
-
-File read/write pipelines
-
-HTTP request/response streaming
-
-Logging
-
-7. Pipeline Example with Transform
-const fs = require('fs');
-const { Transform, pipeline } = require('stream/promises');
-
-const upperCase = new Transform({
-  transform(chunk, encoding, callback) {
-    callback(null, chunk.toString().toUpperCase());
-  }
 });
 
 await pipeline(

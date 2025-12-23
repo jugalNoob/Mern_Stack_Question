@@ -81,4 +81,93 @@ UI updates depend on side effects
 
 🔥 One-line interview-answer
 
-👉 “A Pure Component is a component that re-renders only when its props or state change, using shallow comparison to improve performance.”
+👉 “A Pure Component is a component that re-renders only when 
+its props or state 
+change, using shallow comparison to improve performance.”
+
+
+
+
+1️⃣ Definition (Simple)
+
+Shallow comparison means comparing only the top-level values of an object or array, not nested objects or arrays inside it.
+
+✅ Checks: direct properties or elements
+
+❌ Does not check nested objects/arrays
+
+2️⃣ Why it matters in React
+
+React.memo and PureComponent use shallow comparison
+
+They check if props or state changed at the top level
+
+If shallow comparison says “same”, React skips re-render
+
+3️⃣ Example 1: Shallow comparison with objects
+const obj1 = { name: 'Jugal', age: 25 };
+const obj2 = { name: 'Jugal', age: 25 };
+
+console.log(obj1 === obj2); // false
+
+
+Why?
+
+=== compares references, not content
+
+Even though keys are same, they are different objects in memory
+
+const obj3 = obj1;
+console.log(obj1 === obj3); // true
+
+
+obj3 points to the same reference, so shallow comparison ✅
+
+4️⃣ Example 2: Shallow comparison with nested objects
+const obj1 = { name: 'Jugal', details: { age: 25 } };
+const obj2 = { name: 'Jugal', details: { age: 25 } };
+
+console.log(obj1.details === obj2.details); // false
+
+
+Shallow comparison only looks at top level (details)
+
+Nested object is different → React thinks prop changed
+
+5️⃣ Real-life analogy
+
+Think of shallow comparison like:
+
+Looking at the cover of a book only
+
+You don’t read inside the book
+
+If the cover is same → React thinks “same”
+
+If the cover changes → React thinks “different”
+
+For nested objects, shallow comparison can’t see the inner content
+
+6️⃣ React Example
+const Child = React.memo(({ user }) => {
+  console.log('Child rendered');
+  return <div>{user.name}</div>;
+});
+
+const user = { name: 'Jugal' };
+
+<Child user={user} />; // render 1
+<Child user={{ name: 'Jugal' }} />; // render again ❌
+
+
+Second render → new object reference
+
+Shallow comparison fails → Child re-renders
+
+✅ Solution: use useMemo or pass stable reference
+
+const user = useMemo(() => ({ name: 'Jugal' }), []);
+
+7️⃣ Interview One-liner
+
+“Shallow comparison checks only the top-level properties of objects or elements of arrays. React.memo uses this to skip re-render if props haven’t changed at the top level.”

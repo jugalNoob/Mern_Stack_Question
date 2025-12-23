@@ -1,35 +1,12 @@
-import React, { useState } from 'react';
-import About from './About';
+import React from 'react'
 
 function Home() {
-  const users = [
-    { name: 'Jugal', age: 45 },
-    { name: 'Rahul', age: 30 },
-    { name: 'Anita', age: 25 },
-  ];
-
-  // State to hold selected user
-  const [selectedUser, setSelectedUser] = useState(null);
-
   return (
-    <div>
-      <h2>Click a user to see details:</h2>
-      {users.map((user, index) => (
-        <button key={index} onClick={() => setSelectedUser(user)}>
-          {user.name}
-        </button>
-      ))}
-
-      {/* Pass the selected user to About component */}
-      {selectedUser && <About user={selectedUser} />}
-    </div>
-  );
+    <div>Home</div>
+  )
 }
 
-export default Home;
-
-
-   
+export default Home
 //       {isLoaded ? (
 //         data && data.user ? (
 //           <>

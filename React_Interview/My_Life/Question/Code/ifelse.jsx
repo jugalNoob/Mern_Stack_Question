@@ -45,7 +45,8 @@ export default App
 
   {num < 18 ? 'Less than 18' :  num === 18 ? 'Equal to 18'  : 'Greater than 18'}
 
- {num < 13 ? 'Child' : num >= 13 && num < 20 ? 'Teenager' : num >= 20 && num < 30 ? 'Young Adult' : num >= 30 && num < 60
+ {num < 13 ? 'Child' : num >= 13 && num < 20 ? 
+  'Teenager' : num >= 20 && num < 30 ? 'Young Adult' : num >= 30 && num < 60
     ? 'Adult'
     : 'Senior'}
 

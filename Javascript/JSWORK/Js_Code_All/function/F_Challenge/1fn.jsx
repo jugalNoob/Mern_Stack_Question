@@ -224,9 +224,40 @@ let a = 0, b = 0;
 5:::::::::::::::: ------------------------------------->>
 
 ✅ Your Code
+
+// ✅ Your Code
 function name(){} // function named "name"
-let names = name; // assign the SAME function into another variable
+let names = name(); // assign the SAME function into another variable
+let name1=name
 console.log(names === name); 
+console.log(name1 === name)
+console.log(name() === undefined)
+console.log(name() === undefined)
+
+1. let names = name() — The Execution
+JavaScript
+
+let names = name();
+console.log(names === name); // Result: false
+What happened: You called the function.
+
+The Return Value: Since your function name(){} doesn't have a 
+return statement, it automatically returns undefined.
+
+The Comparison: You are comparing undefined (the result) to the 
+function itself. They are not the same.
+
+2. let name1 = name — The Reference
+JavaScript
+
+let name1 = name;
+console.log(name1 === name); // Result: true
+What happened: You did not use (). You simply told JavaScript: "Hey, 
+make name1 point to the exact same memory location as name."
+
+The Comparison: Since both variables now point to the same "function
+ object" in memory, the comparison is true.
+
 
 ⭐ Output:
 true

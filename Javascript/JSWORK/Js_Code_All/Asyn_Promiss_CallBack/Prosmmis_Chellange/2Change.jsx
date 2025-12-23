@@ -1,5 +1,3 @@
-
-
 000000000000000 ----------------------------------------->>
 console.log('first')
 console.log(Promise.resolve('seocnd'))

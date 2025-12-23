@@ -1,4 +1,5 @@
-console.log([10] == [ 10])
+
+
 
 // let user = { name: "Jugal" };
 

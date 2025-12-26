@@ -1,3 +1,11 @@
+Key Points
+
+Lexical scope → determines what variables a function can access (statically).
+
+Closure → preserves variables in memory (heap) for future use.
+
+Heap → stores function objects and lexical environments.
+
 
 //memory leak in clouser Concapet
 

@@ -1,3 +1,37 @@
+var foo='00'
+
+function showName(){
+    foo='innerFoo'
+    console.log(foo)
+    return;
+    function foo(){}
+}
+
+showName()
+console.log(foo)
+
+
+
+function nameChange(){};
+nameChange='jugal sharma'
+console.log(nameChange)
+
+
+function magic(){
+    return x=1,[],{};
+}
+
+console.log(magic())
+
+
+
+
+function isAdult(age) {
+  if (!age)
+ return false;
+  return age > 18;
+}
+
 
 
 

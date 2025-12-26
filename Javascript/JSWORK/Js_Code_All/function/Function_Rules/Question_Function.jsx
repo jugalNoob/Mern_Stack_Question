@@ -11,7 +11,8 @@ console.log(Firstfn())
 What happens, call by call
 1) Firstfn('jugal ')
 
-When the function is called, the parameter a is set to the argument value 'jugal ' (a non-undefined string).
+When the function is called, the parameter a is set to the argument 
+value 'jugal ' (a non-undefined string).
 
 Because an argument was provided, the default ('karan') is not used.
 

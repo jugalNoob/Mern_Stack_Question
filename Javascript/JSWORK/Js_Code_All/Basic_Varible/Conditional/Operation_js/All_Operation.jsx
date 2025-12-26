@@ -160,3 +160,194 @@ Less common but important.
 | `new`    | `new Date()`     |
 | `void`   | `void 0`         |
 | `,`      | `(1,2,3)`        |
+
+
+
+1️⃣ What is an Operator in JS?
+
+Q: What is an operator in JavaScript?
+A: An operator is a special symbol or keyword used to perform operations on values (operands), such as arithmetic, comparison, logical, or assignment.
+
+Q: How many types of operators are there?
+A: 7 main types:
+
+Arithmetic
+
+Assignment
+
+Comparison
+
+Logical
+
+Bitwise
+
+String
+
+Ternary / Conditional
+
+2️⃣ Arithmetic Operators
+
+Q: What are arithmetic operators?
+A: Operators used to perform mathematical operations.
+
+Common ones:
+
++ addition
+
+- subtraction
+
+* multiplication
+
+/ division
+
+% remainder
+
+++ increment
+
+-- decrement
+
+Interview tip:
+
+++ vs -- can be prefix or postfix, affecting evaluation order.
+
+3️⃣ Assignment Operators
+
+Q: What are assignment operators?
+A: Operators used to assign values to variables.
+
+Common ones:
+
+= simple assignment
+
++= add and assign
+
+-= subtract and assign
+
+*= multiply and assign
+
+/= divide and assign
+
+Example:
+
+x += 5 → same as x = x + 5
+
+4️⃣ Comparison Operators
+
+Q: What are comparison operators?
+A: Operators used to compare two values and return true/false.
+
+Common ones:
+
+== equal (value, ignores type)
+
+=== strict equal (value + type)
+
+!= not equal (ignores type)
+
+!== strict not equal
+
+> greater than
+
+< less than
+
+>= greater than or equal
+
+<= less than or equal
+
+Interview trap:
+
+0 == false → true (type coercion)
+
+0 === false → false (strict, no coercion)
+
+5️⃣ Logical Operators
+
+Q: What are logical operators?
+A: Used to combine or invert boolean values.
+
+&& → AND (true if both true)
+
+|| → OR (true if one is true)
+
+! → NOT (invert boolean)
+
+Interview tip:
+
+Short-circuit evaluation:
+
+false && anything → returns false immediately
+
+true || anything → returns true immediately
+
+6️⃣ Bitwise Operators
+
+Q: What are bitwise operators?
+A: Operate at binary level on numbers.
+
+& AND
+
+| OR
+
+^ XOR
+
+~ NOT
+
+<< left shift
+
+>> right shift
+
+>>> zero-fill right shift
+
+Interview tip:
+
+Rarely used, but can optimize some performance-critical code
+
+7️⃣ String Operators
+
+Q: How do you operate on strings?
+A: Strings mainly use concatenation operator:
+
++ → joins strings
+
++= → append string to existing variable
+
+Interview trap:
+
+"5" + 2 → "52" (string concatenation)
+
+"5" - 2 → 3 (string converted to number)
+
+8️⃣ Ternary / Conditional Operator
+
+Q: What is the ternary operator?
+A: A shortcut for if-else. Syntax:
+
+condition ? valueIfTrue : valueIfFalse
+
+
+Interview tip:
+
+Always returns a value
+
+Can be nested but avoid for readability
+
+9️⃣ Typeof & instanceof Operators
+
+Q: What is typeof?
+A: Returns a string indicating the type of a variable (number, string, object, function, etc.)
+
+Q: What is instanceof?
+A: Checks if an object is derived from a constructor (object instanceof Constructor)
+
+🔟 Interview Summary Table
+
+| Operator Type | Example                   | Returns / Use       |                 |         |
+| ------------- | ------------------------- | ------------------- | --------------- | ------- |
+| Arithmetic    | `+ - * / % ++ --`         | Number              |                 |         |
+| Assignment    | `= += -= *= /=`           | Assign values       |                 |         |
+| Comparison    | `== === != !== > < >= <=` | Boolean             |                 |         |
+| Logical       | `&&                       |                     | !`              | Boolean |
+| Bitwise       | `&                        | ^ ~ << >> >>>`      | Number (binary) |         |
+| String        | `+`                       | Concatenate strings |                 |         |
+| Ternary       | `cond ? a : b`            | Conditional value   |                 |         |
+| Type Checking | `typeof`, `instanceof`    | Type info           |                 |         |

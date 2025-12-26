@@ -4,6 +4,14 @@ useEffect(() => {}, [data])   // update
 useEffect(() => { return () => {} }, []) // unmount
 
 
+| **Lifecycle Phase**                | **useEffect Usage**                           | **Example**                      |
+| ---------------------------------- | --------------------------------------------- | -------------------------------- |
+| **Mount (componentDidMount)**      | `useEffect(() => {...}, [])`                  | Fetch API when component mounts  |
+| **Update (componentDidUpdate)**    | `useEffect(() => {...}, [deps])`              | Run when `deps` change           |
+| **Unmount (componentWillUnmount)** | `useEffect(() => { return () => {...} }, [])` | Cleanup timers, remove listeners |
+
+
+
 Interview Trap  
 
 useEffect runs after render, not before

@@ -193,3 +193,15 @@ Stable references for child components (React.memo)
 ✅ Interview One-Liner:
 
 “useMemo caches a computed value and recalculates it only when its dependencies change, like remembering a previous calculation so React doesn’t waste time recalculating on every render.”
+
+
+
+Imagine you have a list of 5,000 users and you want to filter them by name.
+
+JavaScript
+
+const filteredUsers = useMemo(() => {
+  console.log("Filtering..."); // This only runs if 'search' or 'users' changes
+  return users.filter(user => user.name.includes(search));
+}, [search, users]); 
+Why use it? If the user clicks a "Toggle Dark Mode" button, the component re-renders. Without useMemo, React would filter those 5,000 users again for no reason. With it, React just grabs the "saved" result.

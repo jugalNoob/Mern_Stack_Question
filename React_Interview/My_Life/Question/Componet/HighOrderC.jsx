@@ -1,3 +1,56 @@
+1️⃣ What is a Higher-Order Component?
+
+A Higher-Order Component (HOC) is a function that takes a component and returns a new component with extra functionality.
+
+Think of it like wrapping your component to give it superpowers. 🦸‍♂️
+
+2️⃣ Why use it?
+
+To reuse logic across multiple components.
+
+To add props, state, or behavior without changing the original component.
+
+3️⃣ Basic Example
+import React from "react";
+
+// This is our HOC
+function withLogger(Component) {
+  return function WrappedComponent(props) {
+    console.log("Props:", props);
+    return <Component {...props} />;
+  };
+}
+
+// Normal component
+function Button({ text }) {
+  return <button>{text}</button>;
+}
+
+// Wrapped component
+const ButtonWithLogger = withLogger(Button);
+
+export default function App() {
+  return <ButtonWithLogger text="Click me" />;
+}
+
+
+✅ What happens:
+
+Button is wrapped by withLogger.
+
+Every time ButtonWithLogger renders, it logs the props.
+
+Original Button is unchanged, just enhanced.
+
+4️⃣ Key Points
+
+HOCs do not modify the original component.
+
+They return a new component.
+
+Common use cases: authentication, logging, theme injection, etc.
+
+
 🚀 What is a Higher-Order Component (HOC)?
 
 A Higher-Order Component (HOC) is a function that takes a

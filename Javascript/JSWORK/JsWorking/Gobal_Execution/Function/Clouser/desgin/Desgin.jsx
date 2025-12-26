@@ -1,3 +1,119 @@
+JS EXECUTION CONTEXT & CLOSURE
+==============================
+
+       CALL STACK                      HEAP MEMORY (Permanent)
++-----------------------+        +----------------------------------+
+|                       |        |  ALLOCATION #0x77                |
+|  count()  <-----------|--------|--> [ Function: inner ]           |
+| (Running now)         |        |    [ Lexical Scope (Closure) ]   |
++-----------------------+        |    [ x: 10 ] <-------------------|--- "x" persists!
+|  Global Context       |        |                                  |
++-----------------------+        +----------------------------------+
+           |                                     ^
+           |                                     |
+           +-------------------------------------+
+            (When outer() ran, it created this
+             Heap object before disappearing)
+
+Notes:
+- Each call to outer() creates a **new closure** with its own `x`.
+- Inner function retains reference to `x` via closure, even after outer() has finished.
+- Global context only knows about the returned function.
+
+
+
+
+========================================================================================
+                                 JAVASCRIPT RUNTIME ARCHITECTURE
+========================================================================================
+
+    JS ENGINE (V8)                                       BROWSER / WEB APIs
+   +---------------------------------------+            +------------------------------+
+   |  CALL STACK (Last In, First Out)      |            |  1. Timers (setTimeout)      |
+   |                                       |            |  2. Network (fetch/XHR)      |
+   |  [ inner() ] <--- Current Execution   |            |  3. DOM Events (click)       |
+   |  [ Global  ]                          |            |  4. Storage/IndexDB          |
+   +------|--------------------------------+            +--------------|---------------+
+          |                                                            |
+          | (If Object/Closure)                                        | (When Finished)
+          V                                                            V
+   +---------------------------------------+            +------------------------------+
+   |  HEAP MEMORY (The Warehouse)          |            |      TASK QUEUE POOL         |
+   |                                       |            |                              |
+   |  +---------------------------------+  |            |  +------------------------+  |
+   |  | CLOSURE SCOPE (Persistent)      |  | <----------|  |  MICROTASK QUEUE (VIP) |  |
+   |  | Variable x: 1                   |  |            |  |  - .then() callbacks   |  |
+   |  +---------------------------------+  |            |  |  - await resumption    |  |
+   |                                       |            |  +------------------------+  |
+   |  +---------------------------------+  |            |               |              |
+   |  | OBJECTS & FUNCTIONS             |  |            |  +------------------------+  |
+   |  | - outer function code           |  |            |  |  MACROTASK QUEUE       |  |
+   |  | - inner function code           |  |            |  |  - setTimeout callback |  |
+   |  +---------------------------------+  |            |  |  - Event listeners     |  |
+   +---------------------------------------+            |  +------------------------+  |
+                                                        +------------------------------+
+                                                                     |
+                                      EVENT LOOP                     |
+             +-------------------------------------------------------+
+             |
+             V
+    [ THE CHECKING PHASE ]
+    1. Is Call Stack Empty?  -----> (If No, Wait)
+    2. Is Microtask Queue Empty? -> (If No, Run ALL Microtasks until empty)
+    3. Run ONE Macrotask.
+    4. Render UI / Repeat.
+========================================================================================
+
+
+
+
+Summary of the "Solve"
+When you do const counter = outer(), the outer function is 
+removed from the Stack, but the variable x is moved to a "Closure" 
+box in the Heap. This is the only reason why calling counter() 
+works later—it goes to the Heap to find x.
+
+
+000000000000000000 ::::::::::::::::::: --------------------------------->>>
+
+JS EXECUTION CONTEXT & CLOSURE
+==============================
+
+       CALL STACK                      HEAP MEMORY (Permanent)
++-----------------------+        +----------------------------------+
+|                       |        |  ALLOCATION #0x77                |
+|  inner()  <-----------|--------|--> [ Function: inner ]           |
+| (Running now)         |        |    [ Lexical Scope (Closure) ]   |
++-----------------------+        |    [ x: 1 ] <--------------------|--- "x" persists!
+|  Global Context       |        |                                  |
++-----------------------+        +----------------------------------+
+           |                                     ^
+           |                                     |
+           +-------------------------------------+
+            (When outer() ran, it created this
+             Heap object before disappearing)
+
+
+
+             CALL STACK                         HEAP MEMORY
+   (Active Tasks)                   (Long-term Storage)
+  +--------------+                +--------------------------+
+  |              |                |  [ CLOSURE ]             |
+  |  EMPTY       |                |  Variable x: 1  <-----+  |
+  |              |                |                       |  |
+  +--------------+                +-----------------------|--+
+  | Global Exec  |                |  [ FUNCTION inner ]   |  |
+  | Context      |                |  Code: "return x++" --+  |
+  +--------------+                +--------------------------+
+          |                                     ^
+          |                                     |
+          +--- counterVariable -----------------+
+               (Points to the Heap)
+
+
+
+
+
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                            THE CLOSURE LIFECYCLE                            │
 └─────────────────────────────────────────────────────────────────────────────┘

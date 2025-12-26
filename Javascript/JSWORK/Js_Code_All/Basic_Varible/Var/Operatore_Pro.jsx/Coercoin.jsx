@@ -11,6 +11,41 @@ Arrays stringify to empty strings, objects stringify to
 [object Object], and == compares objects by reference 
 but primitives by value after coercion.
 
+✅ Coercion — Simple Definition (Interview-friendly)
+
+Coercion means JavaScript automatically converts 
+one data type into another when performing an 
+operation.
+
+🧠 In one line
+
+Type coercion = automatic type conversion done by 
+avaScript
+
+🔹 Simple Examples
+"5" + 2   // "52"   → number → string
+"5" - 2   // 3      → string → number
+true + 1  // 2      → boolean → number
+
+🔹 Why coercion exists
+
+JavaScript is loosely typed, so it tries to “make 
+things work” instead of throwing errors.
+
+🔥 Interview Gold Line
+
+Coercion happens automatically; explicit 
+conversion is done by the developer
+
+Number("5")   // explicit
+"5" - 0       // coercion
+
+🔐 Two Types of Coercion
+
+Implicit → done by JS (==, +, -)
+
+Explicit → done by you (Number(), String())
+
 
 How it works (The Simple Rule)
 When you try to perform an operation on two different types,

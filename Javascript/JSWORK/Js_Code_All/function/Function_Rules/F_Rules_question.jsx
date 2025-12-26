@@ -1,6 +1,7 @@
 🔥 THE COMPLETE RULEBOOK OF JAVASCRIPT FUNCTIONS (Deep Explanation)
 
-This covers everything: scope, hoisting, memory, closures, default params, async, execution context, and more.
+This covers everything: scope, hoisting, memory, closures,
+ default params, async, execution context, and more.
 
 1️⃣ Function Declaration Rules
 ✔ Syntax:

@@ -43,3 +43,34 @@ Function reference is stable
 3️⃣ Interview one-liner
 
 “Use useCallback when passing functions as props to children, so the child won’t re-render unnecessarily on every parent render.”
+
+
+
+
+
+2. When to use useCallback
+Use this when you are passing a function down to a Child
+ Component.
+
+In React, every time a component re-renders, it creates a 
+"new" version of your functions. If you pass a "new" 
+function to a Child, that Child will re-render even if 
+it didn't need to. useCallback stops this.
+
+The Example:
+JavaScript
+
+// This function is "saved" and stays the same between renders
+const handleIncrement = useCallback(() => {
+  setCount(c => c + 1);
+}, []); // Empty array means "never change this function"
+
+return <BigExpensiveChildComponent onClick={handleIncrement} />;
+
+
+Hook,"What it ""Remembers""",Return Value,Main Goal
+useMemo,The result of a calculation,"A value (100, true, [...])",Speed up slow calculations.
+useCallback,The function itself,A function () => { ... },Stop child components from unnecessary re-rendering.
+
+
+f you are trying to fix unnecessary re-renders of child components: Use useCallback.

@@ -1,3 +1,22 @@
+var bar=function foo(){}
+console.log(bar === foo)
+
+2️⃣ What’s happening here
+
+You created a function expression and assigned it to bar:
+
+var bar = function foo(){};
+
+
+bar → now holds a reference to the function.
+
+foo is the name of the function only inside its own body.
+
+foo is not available in the outer scope!
+
+
+
+
 🚀 PART 2 — JAVASCRIPT FUNCTION INTERNALS (EXTREME DEPTH)
 1️⃣ How Functions Live in Memory (V8 Internal Theory)
 

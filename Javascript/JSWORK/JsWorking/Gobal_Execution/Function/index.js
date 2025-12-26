@@ -1,16 +1,10 @@
-let data=1
+let data = [10, 20, undefined, -1, true].filter(elmt => {
+  return typeof elmt === 'number' && elmt > 0;
+});
 
-console.log(data++ + ++data)
+console.log(data); // [10, 20]
 
-const p = Promise.resolve(10)
 
-async function a() {
-  console.log(await p)
-}
 
-async function b() {
-  console.log(await p)
-}
-
-a()
-b()
+let datas = [10, 20, undefined, -1, true].filter(el => el > 0 && typeof el === 'number');
+console.log(datas); // [10, 20]

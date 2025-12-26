@@ -1,4 +1,69 @@
+2️⃣ Your first example
+let x = 10;
 
+function One() {
+  let x = 10;
+  return x;
+}
+
+console.log(One() && 'karan');
+
+
+Step by step:
+
+One() is called → returns 10
+
+10 && 'karan'
+
+10 is truthy
+
+So JS evaluates 'karan' → returns 'karan'
+
+Output:
+
+'karan'
+
+console.log(One() && x);
+
+
+Step by step:
+
+One() → 10 (truthy)
+
+10 && x
+
+x is 10 (from outer scope)
+
+JS returns 10
+
+Output:
+
+10
+
+3️⃣ Your second example
+function Two() {
+  let ones = 'jugal sharma';
+  console.log(ones);
+}
+
+console.log(Two() && 18);
+
+
+Step by step:
+
+Two() is called →
+
+console.log(ones) runs inside function → prints 'jugal sharma' first
+
+Two() does not return anything, so it implicitly returns undefined
+
+undefined && 18 →
+
+undefined is falsy
+
+Short-circuit → returns undefined
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
 
 function Nmaes(){
 

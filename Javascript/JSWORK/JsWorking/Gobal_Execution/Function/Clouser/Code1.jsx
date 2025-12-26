@@ -68,20 +68,22 @@ Let me restate it cleanly and professionally, then prove it with a
 
 ✅ Short, Correct Statement
 
-inc has access only to x via the closure scope — NOT to the counter function itself.
+inc has access only to x via the closure 
+scope — NOT to the counter function itself.
 
-Yes — exactly 👍
-Your understanding is now 100% correct.
-Let me restate it cleanly and professionally, then prove 
+
+00::Let me restate it cleanly and professionally, then prove 
 it with a mental model.
 
 ✅ Short, Correct Statement
 
-inc has access only to x via the closure scope — NOT to the counter function itself.
+inc has access only to x via the closure scope — NOT 
+to the counter function itself.
 
 🧠 Why this is true (Core Rule)
 
-Closures capture variables from a lexical environment, not the entire parent function object.
+Closures capture variables from a lexical environment,
+ not the entire parent function object.
 
 What is captured?
 
@@ -186,8 +188,10 @@ Now let’s explain like a JS engine designer.
 
 🎯 PERFECT INTERVIEW ANSWER
 
-“Heap memory in JavaScript is used to store reference types like objects, functions, and
- closures. The stack holds references to these objects. Garbage collection 
+“Heap memory in JavaScript is used to store reference
+ types like objects, functions, and
+ closures. The stack holds references to these objects.
+  Garbage collection 
  automatically removes heap objects that are no longer reachable.”
 
 

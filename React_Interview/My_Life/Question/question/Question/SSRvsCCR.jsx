@@ -1,4 +1,13 @@
-0️⃣ How React handles 10k+ components?
+0️⃣ How Rea
+🌐 SYSTEM DESIGN (STAFF / LEAD LEVEL)
+2️⃣0️⃣ How React handles 10k+ components?
+
+Windowing (react-window)
+
+Memoization
+
+Virtualization
+ct handles 10k+ components?
 
 Windowing (react-window)
 
@@ -26,15 +35,6 @@ Mutating state directly
 Missing key
 
 
-
-🌐 SYSTEM DESIGN (STAFF / LEAD LEVEL)
-2️⃣0️⃣ How React handles 10k+ components?
-
-Windowing (react-window)
-
-Memoization
-
-Virtualization
 
 
 SSR vs CSR

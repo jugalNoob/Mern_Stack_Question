@@ -1,16 +1,26 @@
 
-// Method 2: structuredClone() (Modern JS)
 
-const one = x => b => d => [x , b ,d];
+let x=10
 
-console.log(one(10)(20)(30)); // 10
+function One(){
+    let x=10
+  return x
+}
+
+console.log(One() && 'karan') //why show fira
+console.log(One() && x)
+
+
+function Two(){
+let ones='jugal sharma'
+console.log(ones)
+
+}
+
+console.log(Two() && 18)  // why first 
 
 
 
-// let ob1 = {
-//   name: 'Jugal',
-//   roll: { user1: 69 }
-// }
 
 // let shallow = Object.assign({}, ob1); // shallow copy
 // shallow.roll.user1 = 100;

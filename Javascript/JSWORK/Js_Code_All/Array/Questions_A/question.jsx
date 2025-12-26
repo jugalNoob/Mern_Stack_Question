@@ -1,3 +1,114 @@
+❓ What is mutation in an array?
+
+
+Array mutation means changing the original array 
+directly instead of creating a new one.
+
+🧠 Common mutating array methods
+
+push()
+
+pop()
+
+shift()
+
+unshift()
+
+splice()
+
+sort()
+
+reverse()
+
+🧠 Common non-mutating methods
+
+map()
+
+filter()
+
+reduce()
+
+slice()
+
+concat()
+
+🏁 One-line recap
+
+Mutation changes the original array in memory.
+
+
+
+❓ What is the meaning of Sparse Array?
+
+A sparse array is an array where some
+ indexes have no values (empty slots).
+
+ 🧠 Key points
+
+Missing indexes are called holes
+
+length becomes highest index + 1
+
+Common in JavaScript arrays
+
+
+Q what is main of slice ?
+
+slice() returns a new array containing selected 
+elements and does not modify the original array.
+
+let arr = [1, 2, 3, 4, 5];
+
+arr.slice(1, 4); // [2, 3, 4]
+
+
+
+
+
+❓ What is the meaning of Polyfill?
+
+A polyfill is code that provides modern JavaScript
+ features in older browsers that don’t support them.
+
+
+Q what is main pop push shift and unsfit ?
+
+ush, Pop, Shift, Unshift are array methods used to add or remove elements.
+
+👉 One-line answers (Interview ready):
+
+push() → adds element(s) to the end of the array
+
+pop() → removes the last element from the array
+
+unshift() → adds element(s) to the start of the array
+
+shift() → removes the first element from the array
+
+
+
+Q why length start 1 ?
+
+📌 Core rule
+
+👉 Index starts from 0
+👉 Length starts from 1
+
+Because counting starts from 1 but indexing starts from 0.
+
+
+Q what is main of index array ?
+
+Index in an array is the zero-based position 
+used to identify and access elements.
+
+Q why index strat zero ?
+
+Array index starts from zero because it simplifies memory
+ address calculation and improves performance.
+
+
+
 1️⃣ Mutable vs Immutable in Arrays
 1. Mutable Methods
 
@@ -16,7 +127,8 @@ Examples of mutable methods:
 
  2. Immutable Methods (ES2023)
 
-Definition: Methods that do NOT change the original array, but return a new array with the desired change.
+Definition: Methods that do NOT change the original array
+, but return a new array with the desired change.
 
 Effect: Original array remains unchanged.
 

@@ -8,6 +8,11 @@ Mental Model (5 checks)
 5. Object? → convert to primitive
 
 
++
+
+
+
+
 Then → final comparison
 
 

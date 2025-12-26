@@ -1,22 +1,28 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './page/Home';
-import About from './page/About';
-import Nav from './page/Nav';
-import Error from './page/Error';
+import React,{useState , useCallback} from 'react'
+import About from './page/About'
+
 function App() {
+console.log('hello')
+  const [count , setCount]=useState(0)
+  
+  const Handle=useCallback(()=>{
+    setCount(count+1)
+
+  },[count])
+
+
   return (
-    <BrowserRouter>
-      <Nav />   {/* Navbar should be here */}
+    <div>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />
-      <Route path="*" element={<Error />} />
+<h1>{count}</h1>
 
-      </Routes>
-    </BrowserRouter>
-  );
+<About update={Handle}>
+
+</About>
+
+
+    </div>
+  )
 }
 
-export default App;
+export default App

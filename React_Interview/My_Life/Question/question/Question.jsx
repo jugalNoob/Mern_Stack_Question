@@ -11,6 +11,13 @@ React is a **JavaScript library** for building **
 component-based user interfaces**. It uses a **virtual DOM** 
 to efficiently update the UI.
 
+
+Q what is main of hook ?
+
+
+
+The main purpose of hooks is to enable state and lifecycle features in functional components.
+
 ---
 
 ## 2️⃣ What is JSX?

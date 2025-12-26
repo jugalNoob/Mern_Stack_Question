@@ -33,6 +33,19 @@ function Test() {}
 The engine creates one function object in the heap:
 
 HEAP
+outer 
+ [[Scope]]       → Lex Env
+
+innerr()usethisng
+ ┌─────────────────────────────┐
+│ Function Object: Test       │
+├─────────────────────────────┤
+│ [[Code]]        → bytecode  │
+│ [[Scope]]       → Lex Env   │
+│ [[Prototype]]   → object    │
+│ length, name, etc.          │
+└─────────────────────────────┘
+
 ┌─────────────────────────────┐
 │ Function Object: Test       │
 ├─────────────────────────────┤

@@ -187,3 +187,41 @@ export default About
 | Highlight active menu          | ✅ Yes |
 | Track page changes             | ✅ Yes |
 | Redirect based on current page | ✅ Yes |
+
+
+
+1️⃣ What is a Private Route?
+
+A private route is a route that only allows access if a user is authenticated.
+
+Normal route: Anyone can access /home, /about, etc.
+
+Private route: Only logged-in users can access, otherwise redirected (e.g., to /login).
+
+Think of it like a secured page.
+
+2️⃣ Example
+import { Navigate } from "react-router-dom";
+
+function PrivateRoute({ children, isAuth }) {
+  // If user is authenticated, render the component
+  // Otherwise, redirect to login page
+  return isAuth ? children : <Navigate to="/login" />;
+}
+
+
+Usage:
+
+<Route 
+  path="/dashboard" 
+  element={
+    <PrivateRoute isAuth={userLoggedIn}>
+      <Dashboard />
+    </PrivateRoute>
+  } 
+/>
+
+
+Dashboard is protected.
+
+If userLoggedIn is false, user is redirected to /login.
